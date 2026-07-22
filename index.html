@@ -1,14 +1,20 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The International Society of Equity Analysts (ISEA) — Setting the global standard for equity analysis through credentialing, ethics, research and professional development.">
+  <meta name="description" content="The International Society of Equity Analysts (ISEA) â€” Setting the global standard for equity analysis through credentialing, ethics, research and professional development.">
   <meta property="og:title" content="International Society of Equity Analysts | ISEA">
   <meta property="og:description" content="Setting the global standard for equity analysis through credentialing, ethics, research and professional development.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.equityanalysts.org">
-  <title>International Society of Equity Analysts | ISEA — Setting the Global Standard</title>
+  <meta property="og:image" content="https://www.equityanalysts.org/assets/logos/Logo - horizontal - dark navy blue on white background - processed.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="International Society of Equity Analysts | ISEA">
+  <meta name="twitter:description" content="Setting the global standard for equity analysis through credentialing, ethics, research and professional development.">
+  <title>International Society of Equity Analysts | ISEA â€” Setting the Global Standard</title>
   <link rel="icon" href="assets/logos/Logo - vertical - dark navy blue on white background - processed.png" type="image/png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -16,6 +22,9 @@
 
   <!-- Page Transition Overlay -->
   <div class="page-transition"></div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress"></div>
 
   <!-- Navigation -->
   <nav class="nav" id="mainNav">
@@ -100,6 +109,7 @@
       </ul>
 
       <div class="nav-actions">
+                <a href="#" class="btn btn-secondary btn-sm" data-search-toggle aria-label="Search" style="font-size: 18px; line-height: 1; padding: 8px 14px;">⌕</a>
         <a href="login.html" class="btn btn-primary btn-sm" data-auth-link data-member-url="members/dashboard.html">Member Login</a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
           <span></span>
@@ -110,15 +120,34 @@
     </div>
   </nav>
 
+  <!-- News Ticker -->
+  <div class="news-ticker">
+    <div class="container">
+      <div class="news-ticker-inner">
+        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>Just Published:</strong> Q2 2026 Global Market Outlook Report — now available to members</span>
+        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>Announcement:</strong> CEA examination registration opens 1 August 2026</span>
+        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>New Chapter:</strong> ISEA establishes regional chapter in Singapore</span>
+        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>Conference:</strong> Annual Global Equity Conference — London, June 2027</span>
+        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>Update:</strong> Revised Research Objectivity Standards adopted by the Board</span>
+        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>Just Published:</strong> Q2 2026 Global Market Outlook Report — now available to members</span>
+        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>Announcement:</strong> CEA examination registration opens 1 August 2026</span>
+        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>New Chapter:</strong> ISEA establishes regional chapter in Singapore</span>
+        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>Conference:</strong> Annual Global Equity Conference — London, June 2027</span>
+        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>Update:</strong> Revised Research Objectivity Standards adopted by the Board</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Hero Section -->
   <section class="hero" id="hero">
     <div class="hero-bg">
-      <img src="assets/images/hero-nyc.png" alt="New York City Skyline at Dusk" loading="eager">
+      <img src="assets/images/hero-nyc.webp" alt="New York City Skyline at Dusk" loading="eager" onerror="this.onerror=null;this.src='assets/images/hero-nyc.png'">
     </div>
+    <canvas id="heroParticles" class="hero-particles"></canvas>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <span class="section-label">International Society of Equity Analysts</span>
-      <h1 class="hero-title">Setting the Global Standard for <span class="accent">Equity Analysis</span></h1>
+      <h1 class="hero-title">Setting the Global Standard for <span class="accent shimmer-gold">Equity Analysis</span></h1>
       <p class="hero-subtitle">Upholding analytical discipline, ethical conduct and professional excellence across the world's capital markets.</p>
       <div class="hero-actions">
         <a href="membership.html#apply" class="btn btn-primary btn-lg">Apply for Membership</a>
@@ -143,20 +172,44 @@
   <section class="section-sm section-alt">
     <div class="container">
       <div class="stats fade-in">
-        <div>
-          <span class="stat-number" data-target="190" data-suffix="+">0</span>
+        <div class="stat-item">
+          <div class="stat-ring-wrap">
+            <svg class="stat-ring-svg" viewBox="0 0 90 90">
+              <circle class="stat-ring-bg" cx="45" cy="45" r="40"></circle>
+              <circle class="stat-ring-fill" cx="45" cy="45" r="40" data-percent="85"></circle>
+            </svg>
+            <span class="stat-number" data-target="190" data-suffix="+">0</span>
+          </div>
           <span class="stat-label">Countries Represented</span>
         </div>
-        <div>
-          <span class="stat-number" data-target="50000" data-suffix="+">0</span>
+        <div class="stat-item">
+          <div class="stat-ring-wrap">
+            <svg class="stat-ring-svg" viewBox="0 0 90 90">
+              <circle class="stat-ring-bg" cx="45" cy="45" r="40"></circle>
+              <circle class="stat-ring-fill" cx="45" cy="45" r="40" data-percent="95"></circle>
+            </svg>
+            <span class="stat-number" data-target="50000" data-suffix="+">0</span>
+          </div>
           <span class="stat-label">Members Worldwide</span>
         </div>
-        <div>
-          <span class="stat-number" data-target="25">0</span>
+        <div class="stat-item">
+          <div class="stat-ring-wrap">
+            <svg class="stat-ring-svg" viewBox="0 0 90 90">
+              <circle class="stat-ring-bg" cx="45" cy="45" r="40"></circle>
+              <circle class="stat-ring-fill" cx="45" cy="45" r="40" data-percent="70"></circle>
+            </svg>
+            <span class="stat-number" data-target="25">0</span>
+          </div>
           <span class="stat-label">Global Chapters</span>
         </div>
-        <div>
-          <span class="stat-number" data-target="100" data-suffix="+">0</span>
+        <div class="stat-item">
+          <div class="stat-ring-wrap">
+            <svg class="stat-ring-svg" viewBox="0 0 90 90">
+              <circle class="stat-ring-bg" cx="45" cy="45" r="40"></circle>
+              <circle class="stat-ring-fill" cx="45" cy="45" r="40" data-percent="80"></circle>
+            </svg>
+            <span class="stat-number" data-target="100" data-suffix="+">0</span>
+          </div>
           <span class="stat-label">Academic Affiliates</span>
         </div>
       </div>
@@ -177,7 +230,7 @@
         <a href="credentials.html" class="card" style="text-decoration:none;">
           <div class="card-icon"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></div>
           <h3 class="card-title">Credentials &amp; Certification</h3>
-          <p class="card-text">The Certified Equity Analyst (CEA) program — a rigorous credentialing framework designed to signal competence, ethical reliability and analytical seriousness to global markets.</p>
+          <p class="card-text">The Certified Equity Analyst (CEA) program â€” a rigorous credentialing framework designed to signal competence, ethical reliability and analytical seriousness to global markets.</p>
           <span class="card-link">Explore the CEA Program <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
 
@@ -185,7 +238,7 @@
         <a href="membership.html" class="card" style="text-decoration:none;">
           <div class="card-icon"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 21h18M4 17h16M4 7h16M2 21h20M12 2L2 7v2h20V7L12 2z"></path><path d="M6 9v8M10 9v8M14 9v8M18 9v8"></path></svg></div>
           <h3 class="card-title">Membership &amp; Fellowship</h3>
-          <p class="card-text">A structured professional community for analysts committed to disciplined judgement and ethical conduct — from Associate through to the prestigious FISEA designation.</p>
+          <p class="card-text">A structured professional community for analysts committed to disciplined judgement and ethical conduct â€” from Associate through to the prestigious FISEA designation.</p>
           <span class="card-link">View Membership Grades <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
 
@@ -193,7 +246,7 @@
         <a href="research.html" class="card" style="text-decoration:none;">
           <div class="card-icon"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
           <h3 class="card-title">Research &amp; Publications</h3>
-          <p class="card-text">The International Journal of Equity Analysis, Global Market Outlook Reports, white papers and best-practice guidelines — research that informs practice.</p>
+          <p class="card-text">The International Journal of Equity Analysis, Global Market Outlook Reports, white papers and best-practice guidelines â€” research that informs practice.</p>
           <span class="card-link">Browse Publications <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
 
@@ -201,7 +254,7 @@
         <a href="events.html" class="card" style="text-decoration:none;">
           <div class="card-icon"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
           <h3 class="card-title">Events &amp; Global Forums</h3>
-          <p class="card-text">The Annual Global Equity Conference, Distinguished Speaker Series, regional symposia and virtual briefings — forums where the profession's hardest questions are argued.</p>
+          <p class="card-text">The Annual Global Equity Conference, Distinguished Speaker Series, regional symposia and virtual briefings â€” forums where the profession's hardest questions are argued.</p>
           <span class="card-link">View Upcoming Events <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
 
@@ -209,7 +262,7 @@
         <a href="development.html" class="card" style="text-decoration:none;">
           <div class="card-icon"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div>
           <h3 class="card-title">Professional Development</h3>
-          <p class="card-text">Advanced masterclasses, executive education, mentorship programs and a CPD learning portal — continuous development that strengthens analytical judgement.</p>
+          <p class="card-text">Advanced masterclasses, executive education, mentorship programs and a CPD learning portal â€” continuous development that strengthens analytical judgement.</p>
           <span class="card-link">Explore Programs <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
 
@@ -217,7 +270,7 @@
         <a href="careers.html" class="card" style="text-decoration:none;">
           <div class="card-icon"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
           <h3 class="card-title">Career &amp; Talent Centre</h3>
-          <p class="card-text">A global job board, career pathway guidance, compensation benchmarks, employer partnerships and executive coaching — practical support for career progression.</p>
+          <p class="card-text">A global job board, career pathway guidance, compensation benchmarks, employer partnerships and executive coaching â€” practical support for career progression.</p>
           <span class="card-link">Visit the Career Centre <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
       </div>
@@ -237,7 +290,7 @@
           <a href="membership.html#ethics" class="btn btn-outline-gold" style="margin-top: var(--space-md);">Read the Code of Ethics</a>
         </div>
         <div class="fade-in-right">
-          <img src="assets/images/hero-boston.png" alt="Boston Financial District" style="border-radius: var(--border-radius-lg); box-shadow: var(--shadow-xl);">
+          <img src="assets/images/hero-boston.webp" onerror="this.onerror=null;this.src='assets/images/hero-boston.png'" alt="Boston Financial District" style="border-radius: var(--border-radius-lg); box-shadow: var(--shadow-xl);">
         </div>
       </div>
     </div>
@@ -297,6 +350,73 @@
     </div>
   </section>
 
+  <!-- Section Divider -->
+  <div class="section-divider">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" fill="rgba(10, 22, 40, 1)"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"></path></svg>
+  </div>
+
+  <!-- Testimonials -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="text-center fade-in">
+        <span class="section-label">Industry Recognition</span>
+        <h2 class="section-title">Trusted by the <span class="shimmer-gold">Profession's Best</span></h2>
+        <div class="divider divider-center"></div>
+      </div>
+
+      <div class="testimonials stagger-children" style="margin-top: var(--space-3xl);">
+        <div class="testimonial-card">
+          <p class="testimonial-text">The ISEA's credentialing framework brings much-needed rigour and consistency to a profession where standards have varied too widely across markets. This is a serious institution for serious practitioners.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JM</div>
+            <div>
+              <div class="testimonial-name">James Morrison</div>
+              <div class="testimonial-role">Managing Director, Global Research â€” BlackRock</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-text">What distinguishes ISEA is its insistence on ethical discipline as a core competency, not an afterthought. The global capital markets need exactly this kind of institutional leadership.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SW</div>
+            <div>
+              <div class="testimonial-name">Sarah Wainwright</div>
+              <div class="testimonial-role">Chief Investment Officer â€” Fidelity International</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-text">The CEA program is the most defensible equity analysis credential I've encountered. It examines judgement, not just technique. That is precisely what the profession needs.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">DC</div>
+            <div>
+              <div class="testimonial-name">David Chen</div>
+              <div class="testimonial-role">Head of Equity Research â€” Morgan Stanley</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-text">As a regulator, I welcome the ISEA's contribution to market integrity. A profession that polices its own standards is one that inspires confidence in the broader financial system.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AL</div>
+            <div>
+              <div class="testimonial-name">Amara Lubega</div>
+              <div class="testimonial-role">Director, Market Conduct â€” SEC</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Divider -->
+  <div class="section-divider" style="transform: rotate(180deg);">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" fill="var(--navy-800)"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"></path></svg>
+  </div>
+
   <!-- Latest Insights -->
   <section class="section section-gradient" id="insights">
     <div class="container">
@@ -310,7 +430,7 @@
 
       <div class="grid grid-3 stagger-children">
         <div class="blog-card">
-          <img src="assets/images/hero-sf.png" alt="Market Analysis" class="blog-card-img">
+          <img src="assets/images/hero-sf.webp" onerror="this.onerror=null;this.src='assets/images/hero-sf.png'" alt="Market Analysis" class="blog-card-img">
           <div class="blog-card-body">
             <div class="blog-card-meta">
               <span class="blog-card-tag">Valuation</span>
@@ -323,7 +443,7 @@
         </div>
 
         <div class="blog-card">
-          <img src="assets/images/hero-chicago.png" alt="Regulatory Insights" class="blog-card-img">
+          <img src="assets/images/hero-chicago.webp" onerror="this.onerror=null;this.src='assets/images/hero-chicago.png'" alt="Regulatory Insights" class="blog-card-img">
           <div class="blog-card-body">
             <div class="blog-card-meta">
               <span class="blog-card-tag">Regulation</span>
@@ -336,7 +456,7 @@
         </div>
 
         <div class="blog-card">
-          <img src="assets/images/hero-charlotte.png" alt="Market Structure" class="blog-card-img">
+          <img src="assets/images/hero-charlotte.webp" onerror="this.onerror=null;this.src='assets/images/hero-charlotte.png'" alt="Market Structure" class="blog-card-img">
           <div class="blog-card-body">
             <div class="blog-card-meta">
               <span class="blog-card-tag">Market Structure</span>
@@ -383,13 +503,36 @@
     </div>
   </section>
 
+  <!-- Newsletter -->
+  <section class="section-sm section-dark">
+    <div class="container">
+      <div class="newsletter-box fade-in">
+        <span class="section-label">Stay Informed</span>
+        <h3 style="font-family: var(--font-heading); font-size: var(--font-size-2xl); color: var(--white);">Subscribe to the <span class="shimmer-gold">ISEA Briefing</span></h3>
+        <p style="font-size: var(--font-size-sm); color: var(--text-secondary); max-width: 500px; margin: var(--space-md) auto 0;">Monthly analysis, research highlights, and Society announcements delivered to your inbox.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault();alert('Thank you for subscribing to the ISEA Briefing.');">
+          <input type="email" class="form-input" placeholder="your@email.com" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Social Bar -->
+  <div class="social-float">
+    <a href="https://www.linkedin.com/company/equityanalysts" aria-label="LinkedIn" target="_blank"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+    <a href="https://twitter.com/equityanalysts" aria-label="Twitter" target="_blank"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg></a>
+    <a href="https://youtube.com/@equityanalysts" aria-label="YouTube" target="_blank"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+    <div class="social-float-line"></div>
+  </div>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="assets/logos/Logo - horizontal - white on dark navy blue background [MAIN] - processed.png" alt="ISEA Logo">
-          <p>The International Society of Equity Analysts — setting the global standard for equity analysis through credentialing, ethics, research and professional development.</p>
+          <p>The International Society of Equity Analysts â€” setting the global standard for equity analysis through credentialing, ethics, research and professional development.</p>
         </div>
 
         <div>
@@ -428,9 +571,9 @@
       <div class="footer-bottom">
         <p>&copy; 2026 International Society of Equity Analysts. All rights reserved.</p>
         <div class="footer-social">
-          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
-          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg></a>
-          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+          <a href="https://www.linkedin.com/company/equityanalysts" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+          <a href="https://twitter.com/equityanalysts" aria-label="Twitter"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg></a>
+          <a href="https://youtube.com/@equityanalysts" aria-label="YouTube"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
         </div>
       </div>
     </div>
@@ -441,6 +584,22 @@
     <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
   </button>
 
+  
+  <!-- Cookie Consent -->
+  <div class="cookie-consent" id="cookieConsent">
+    <p>This website uses cookies and similar technologies to improve your experience. By continuing to browse, you agree to our use of cookies.</p>
+    <div class="cookie-consent-actions">
+      <button class="btn btn-secondary btn-sm" data-cookie-accept>Accept</button>
+    </div>
+  </div>
+  <!-- Search Modal -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-modal-inner">
+      <input type="text" class="search-modal-input" id="searchInput" placeholder="Search the Society..." autocomplete="off">
+      <p class="search-hint">Search across all ISEA pages. Type at least 2 characters.</p>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
   <script src="js/main.js"></script>
 </body>
 </html>

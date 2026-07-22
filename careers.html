@@ -1,16 +1,29 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ISEA Career & Talent Centre — Global Equity Analyst Job Board, Career Pathways, Employer Partner Program, Resume Review and Internship Grants.">
-  <title>Career &amp; Talent Centre | ISEA — International Society of Equity Analysts</title>
+  <meta name="description" content="ISEA Career & Talent Centre â€” Global Equity Analyst Job Board, Career Pathways, Employer Partner Program, Resume Review and Internship Grants.">
+  <meta property="og:title" content="Career &amp; Talent Centre | ISEA â€” International Society of Equity Analysts">
+  <meta property="og:description" content="Global equity analyst job board, career pathways, employer partnerships and executive coaching.">
+  <meta property="og:image" content="https://www.equityanalysts.org/assets/logos/Logo - horizontal - dark navy blue on white background - processed.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Career &amp; Talent Centre | ISEA">
+  <meta name="twitter:description" content="Global equity analyst job board, career pathways, employer partnerships and executive coaching.">
+  <title>Career &amp; Talent Centre | ISEA â€” International Society of Equity Analysts</title>
   <link rel="icon" href="assets/logos/Logo - vertical - dark navy blue on white background - processed.png" type="image/png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <!-- Page Transition Overlay -->
   <div class="page-transition"></div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress"></div>
+
   <nav class="nav" id="mainNav"><div class="nav-inner"><a href="index.html" class="nav-logo"><img src="assets/logos/Logo - horizontal - white on dark navy blue background [MAIN] - processed.png" alt="ISEA"></a><ul class="nav-menu" id="navMenu">
         <li class="nav-item"><a href="about.html" class="nav-link">About <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
           <div class="nav-dropdown">
@@ -79,10 +92,11 @@
             <a href="blog.html">Insights Blog</a>
           </div>
         </li>
-      </ul><div class="nav-actions"><a href="login.html" class="btn btn-primary btn-sm" data-auth-link data-member-url="members/dashboard.html">Member Login</a><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button></div></div></nav>
+      </ul><div class="nav-actions">        <a href="#" class="btn btn-secondary btn-sm" data-search-toggle aria-label="Search" style="font-size: 18px; line-height: 1; padding: 8px 14px;">⌕</a>
+        <a href="login.html" class="btn btn-primary btn-sm" data-auth-link data-member-url="members/dashboard.html">Member Login</a><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button></div></div></nav>
 
   <section class="hero hero-page">
-    <div class="hero-bg"><img src="assets/images/hero-nyc.png" alt="New York Business District" loading="eager"></div>
+    <div class="hero-bg"><img src="assets/images/hero-nyc.webp" onerror="this.onerror=null;this.src='assets/images/hero-nyc.png'" alt="New York Business District" loading="eager"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -92,7 +106,7 @@
       </nav>
       <span class="section-label">Career &amp; Talent Centre</span>
       <h1 class="hero-title">Where Credentials Carry <span class="accent">Practical Weight</span></h1>
-      <p class="hero-subtitle">A members-only job board, career pathways, compensation benchmarks and employer partnerships — practical support for career progression.</p>
+      <p class="hero-subtitle">A members-only job board, career pathways, compensation benchmarks and employer partnerships â€” practical support for career progression.</p>
     </div>
   </section>
 
@@ -103,14 +117,17 @@
         <h2 class="section-title">Global Equity Analyst Job Board</h2>
         <div class="divider"></div>
         <p>The Society's Job Board connects employers with analysts whose credentials and conduct have been vetted against a recognised professional standard. Access is restricted to institutions that engage in genuine equity research, asset management, corporate finance or related analytical functions.</p>
-        <p>Listings span buy-side and sell-side research positions, portfolio management, corporate access, investor relations and regulatory analysis. Members carry the context of examination performance, CPD compliance and, where applicable, Fellowship review — information that shortens the distance between application and serious consideration.</p>
+        <p>Listings span buy-side and sell-side research positions, portfolio management, corporate access, investor relations and regulatory analysis. Members carry the context of examination performance, CPD compliance and, where applicable, Fellowship review â€” information that shortens the distance between application and serious consideration.</p>
       </div>
 
-      <!-- Job Board Preview -->
+      <!-- Job Search -->
       <div style="margin-top: var(--space-2xl);">
+        <div style="margin-bottom: var(--space-lg);">
+          <input type="text" class="form-input" id="jobSearch" placeholder="Search jobs by title, company, or keyword..." style="max-width: 500px;" oninput="filterJobs(this.value)">
+        </div>
         <div class="job-card" style="margin-bottom: var(--space-md);">
           <div class="job-info">
-            <h4>Senior Equity Research Analyst — Technology</h4>
+            <h4>Senior Equity Research Analyst â€” Technology</h4>
             <p class="job-company">Global Asset Management Firm</p>
             <div class="job-details">
               <span class="job-detail"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> New York, NY</span>
@@ -123,7 +140,7 @@
 
         <div class="job-card" style="margin-bottom: var(--space-md);">
           <div class="job-info">
-            <h4>Portfolio Manager — Emerging Markets Equity</h4>
+            <h4>Portfolio Manager â€” Emerging Markets Equity</h4>
             <p class="job-company">Institutional Investment Fund</p>
             <div class="job-details">
               <span class="job-detail"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> London, UK</span>
@@ -136,7 +153,7 @@
 
         <div class="job-card" style="margin-bottom: var(--space-md);">
           <div class="job-info">
-            <h4>Equity Research Associate — Healthcare</h4>
+            <h4>Equity Research Associate â€” Healthcare</h4>
             <p class="job-company">Sell-Side Research House</p>
             <div class="job-details">
               <span class="job-detail"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Chicago, IL</span>
@@ -159,8 +176,8 @@
       <span class="section-label">Career Guidance</span>
       <h2 class="section-title">Career Pathways &amp; Compensation Benchmarks</h2>
       <div class="divider"></div>
-      <p>The Society provides structured information on how careers in equity analysis typically develop — from entry-level research support through to senior analyst, portfolio management, or leadership positions. Compensation benchmarking data is drawn from confidential member surveys across regions, sectors and seniority levels.</p>
-      <p>The benchmarking accounts for meaningful variations — sell-side research carries different structures to buy-side portfolio-facing roles, and both differ from independent research houses. Career pathway guidance also addresses the relationship between credentialing and advancement.</p>
+      <p>The Society provides structured information on how careers in equity analysis typically develop â€” from entry-level research support through to senior analyst, portfolio management, or leadership positions. Compensation benchmarking data is drawn from confidential member surveys across regions, sectors and seniority levels.</p>
+      <p>The benchmarking accounts for meaningful variations â€” sell-side research carries different structures to buy-side portfolio-facing roles, and both differ from independent research houses. Career pathway guidance also addresses the relationship between credentialing and advancement.</p>
     </div></div>
   </section>
 
@@ -169,7 +186,7 @@
       <span class="section-label">Institutional Partnerships</span>
       <h2 class="section-title">Employer Partner Program</h2>
       <div class="divider"></div>
-      <p>The Employer Partner Program formalises the relationship between the Society and institutions that rely on equity analysis talent. Partnership carries reciprocal obligations — employers support CPD for credentialed employees, provide input into curriculum relevance, and uphold internal research governance consistent with the Society's standards.</p>
+      <p>The Employer Partner Program formalises the relationship between the Society and institutions that rely on equity analysis talent. Partnership carries reciprocal obligations â€” employers support CPD for credentialed employees, provide input into curriculum relevance, and uphold internal research governance consistent with the Society's standards.</p>
       <p>In return, Employer Partners receive preferential access to the Job Board, participation in campus recruitment initiatives, and invitations to contribute to discussions on curriculum development and emerging analytical requirements.</p>
       <a href="mailto:info@equityanalysts.org" class="btn btn-primary" style="margin-top: var(--space-md);">Become an Employer Partner</a>
     </div></div>
@@ -180,7 +197,7 @@
       <span class="section-label">Career Support</span>
       <h2 class="section-title">Resume Review &amp; Executive Coaching</h2>
       <div class="divider"></div>
-      <p>Resume Review is conducted by senior practitioners who understand what distinguishes a substantive research contribution from a procedural one. Members receive direct, candid feedback — an assessment of whether the document accurately reflects the level of judgement the candidate has exercised.</p>
+      <p>Resume Review is conducted by senior practitioners who understand what distinguishes a substantive research contribution from a procedural one. Members receive direct, candid feedback â€” an assessment of whether the document accurately reflects the level of judgement the candidate has exercised.</p>
       <p>Executive Coaching extends support to senior transitions: movement into portfolio management, research function leadership, or Fellowship-level recognition. Coaching engagements are structured around the specific demands of these transitions, including how to present a track record of independent judgement and navigate conflicts inherent to senior analytical roles.</p>
     </div></div>
   </section>
@@ -191,16 +208,42 @@
       <h2 class="section-title">Internship &amp; Fellowship Grants</h2>
       <div class="divider"></div>
       <p>The Internship &amp; Fellowship Grants program provides funding to support internship placements and research fellowships for candidates who demonstrate strong analytical potential but face financial constraints. Recipients are selected through a competitive process assessing academic performance, analytical aptitude and understanding of the profession's ethical responsibilities.</p>
-      <p>The Society's view is that access to the profession should be determined by aptitude and integrity, not solely by financial circumstance — while ensuring those admitted through this pathway are held to the same standard as every other member.</p>
+      <p>The Society's view is that access to the profession should be determined by aptitude and integrity, not solely by financial circumstance â€” while ensuring those admitted through this pathway are held to the same standard as every other member.</p>
     </div></div>
   </section>
 
   <section class="section-sm"><div class="container"><div class="ad-section fade-in"><p class="ad-section-label">Institutional Partners</p><h3 class="ad-section-title">Recruit Credentialed Equity Analysts</h3><p class="ad-section-text">Access a global talent pool of professionals vetted against the highest analytical and ethical standards.</p><div class="ad-slots"><div class="ad-slot">Your Institution Here</div><div class="ad-slot">Your Institution Here</div><div class="ad-slot">Your Institution Here</div></div><a href="mailto:info@equityanalysts.org" class="btn btn-outline-gold btn-sm">Advertise With ISEA</a></div></div></section>
 
-  <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="assets/logos/Logo - horizontal - white on dark navy blue background [MAIN] - processed.png" alt="ISEA Logo"><p>Setting the global standard for equity analysis.</p></div><div><h4 class="footer-heading">The Society</h4><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="membership.html">Membership</a></li><li><a href="credentials.html">Credentials</a></li><li><a href="research.html">Research</a></li><li><a href="news.html">News</a></li></ul></div><div><h4 class="footer-heading">Resources</h4><ul class="footer-links"><li><a href="events.html">Events</a></li><li><a href="development.html">Development</a></li><li><a href="careers.html">Careers</a></li><li><a href="blog.html">Insights</a></li><li><a href="login.html">Member Login</a></li></ul></div><div><h4 class="footer-heading">Contact</h4><ul class="footer-links"><li><a href="mailto:info@equityanalysts.org">info@equityanalysts.org</a></li><li><a href="mailto:membership@equityanalysts.org">membership@equityanalysts.org</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 International Society of Equity Analysts. All rights reserved.</p><div class="footer-social"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg></a><a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a></div></div></div></footer>
+  <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="assets/logos/Logo - horizontal - white on dark navy blue background [MAIN] - processed.png" alt="ISEA Logo"><p>Setting the global standard for equity analysis.</p></div><div><h4 class="footer-heading">The Society</h4><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="membership.html">Membership</a></li><li><a href="credentials.html">Credentials</a></li><li><a href="research.html">Research</a></li><li><a href="news.html">News</a></li></ul></div><div><h4 class="footer-heading">Resources</h4><ul class="footer-links"><li><a href="events.html">Events</a></li><li><a href="development.html">Development</a></li><li><a href="careers.html">Careers</a></li><li><a href="blog.html">Insights</a></li><li><a href="login.html">Member Login</a></li></ul></div><div><h4 class="footer-heading">Contact</h4><ul class="footer-links"><li><a href="mailto:info@equityanalysts.org">info@equityanalysts.org</a></li><li><a href="mailto:membership@equityanalysts.org">membership@equityanalysts.org</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 International Society of Equity Analysts. All rights reserved.</p><div class="footer-social"><a href="https://www.linkedin.com/company/equityanalysts" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a href="https://twitter.com/equityanalysts" aria-label="Twitter"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg></a><a href="https://youtube.com/@equityanalysts" aria-label="YouTube"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a></div></div></div></footer>
   <button class="scroll-top" aria-label="Scroll to top">
     <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
   </button>
+  
+  <!-- Cookie Consent -->
+  <div class="cookie-consent" id="cookieConsent">
+    <p>This website uses cookies and similar technologies to improve your experience. By continuing to browse, you agree to our use of cookies.</p>
+    <div class="cookie-consent-actions">
+      <button class="btn btn-secondary btn-sm" data-cookie-accept>Accept</button>
+    </div>
+  </div>
+  <!-- Search Modal -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-modal-inner">
+      <input type="text" class="search-modal-input" id="searchInput" placeholder="Search the Society..." autocomplete="off">
+      <p class="search-hint">Search across all ISEA pages. Type at least 2 characters.</p>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
   <script src="js/main.js"></script>
+  <script>
+    function filterJobs(query) {
+      const cards = document.querySelectorAll('.job-card');
+      const q = query.toLowerCase();
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = (!query || text.includes(q)) ? '' : 'none';
+      });
+    }
+  </script>
 </body>
 </html>

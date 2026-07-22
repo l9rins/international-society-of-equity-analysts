@@ -1,10 +1,19 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn about the International Society of Equity Analysts — our history, mission, governance, global chapters and strategic partnerships.">
-  <title>About the Society | ISEA — International Society of Equity Analysts</title>
+  <meta name="description" content="Learn about the International Society of Equity Analysts â€” our history, mission, governance, global chapters and strategic partnerships.">
+  <meta property="og:title" content="About the Society | ISEA â€” International Society of Equity Analysts">
+  <meta property="og:description" content="Learn about ISEA's history, mission, governance, global chapters and strategic partnerships.">
+  <meta property="og:image" content="https://www.equityanalysts.org/assets/logos/Logo - horizontal - dark navy blue on white background - processed.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About the Society | ISEA">
+  <meta name="twitter:description" content="Learn about ISEA's history, mission, governance, global chapters and strategic partnerships.">
+  <title>About the Society | ISEA â€” International Society of Equity Analysts</title>
   <link rel="icon" href="assets/logos/Logo - vertical - dark navy blue on white background - processed.png" type="image/png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -12,6 +21,9 @@
 
   <!-- Page Transition Overlay -->
   <div class="page-transition"></div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress"></div>
 
   <!-- Navigation -->
   <nav class="nav" id="mainNav">
@@ -90,6 +102,7 @@
         </li>
       </ul>
       <div class="nav-actions">
+                <a href="#" class="btn btn-secondary btn-sm" data-search-toggle aria-label="Search" style="font-size: 18px; line-height: 1; padding: 8px 14px;">⌕</a>
         <a href="login.html" class="btn btn-primary btn-sm" data-auth-link data-member-url="members/dashboard.html">Member Login</a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
       </div>
@@ -98,7 +111,7 @@
 
   <!-- Hero -->
   <section class="hero hero-page">
-    <div class="hero-bg"><img src="assets/images/hero-boston.png" alt="Boston Skyline" loading="eager"></div>
+    <div class="hero-bg"><img src="assets/images/hero-boston.webp" onerror="this.onerror=null;this.src='assets/images/hero-boston.png'" alt="Boston Skyline" loading="eager"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -128,14 +141,49 @@
             <li><a href="#partnerships">Partnerships</a></li>
           </ul>
         </div>
-        <div class="content-block fade-in">
+        <div class="fade-in">
           <span class="section-label">Heritage</span>
           <h2 class="section-title">Our History &amp; Heritage</h2>
           <div class="divider"></div>
-          <p>The International Society of Equity Analysts was established to bring greater discipline, ethical clarity and professional cohesion to a field that had grown global in scale but uneven in standards. From its inception, the Society has been shaped by practitioners who believed that equity analysis should be conducted with intellectual rigour, methodological consistency and an unambiguous commitment to investor protection. That conviction remains the foundation of our identity.</p>
-          <p>The Society's origins trace back to a recognition within the profession that equity analysis required an institution capable of setting expectations that were not merely technical, but cultural. Across major financial centres, analysts had long acknowledged the need for a body that could stand apart from commercial interests, resist the short‑termism that distorts market behaviour, and uphold a level of analytical conduct respected across jurisdictions.</p>
-          <p>The Society's development reflects a deliberate, gradual broadening of its institutional foundations. As the organisation grows, it continues to explore opportunities to build structured relationships with regional groups, professional councils and academic institutions. These initiatives are introduced carefully and only when they strengthen the Society's ability to uphold consistent standards while acknowledging the realities of different market structures and regulatory environments.</p>
-          <p>Today, the Society stands as an institution shaped by its history but not defined by nostalgia. We preserve the principles that guided our founders — independence, analytical discipline, and ethical responsibility — while maintaining a forward-looking posture suited to modern markets. Our heritage is the quiet but persistent expectation that equity analysts should operate at a standard that justifies the trust placed in them.</p>
+          <p style="margin-bottom: var(--space-2xl);">From inception to institutional maturity — the milestones that shaped the Society.</p>
+
+          <div class="timeline-enhanced">
+            <div class="timeline-item">
+              <div class="timeline-year">2018</div>
+              <h4 class="timeline-title">Formation &amp; Founding Charter</h4>
+              <p>A group of senior practitioners from major financial centres convened to address the growing inconsistency in analytical standards across jurisdictions. The founding charter was drafted and the Society's institutional framework established.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2019</div>
+              <h4 class="timeline-title">Governance Structure &amp; Ethical Framework</h4>
+              <p>The Board of Governors was constituted and the Society formally adopted the CFA Institute Code of Ethics and Standards of Professional Conduct as its ethical foundation, supplemented by the Research Objectivity Standards and Best Practice Guidelines.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2020</div>
+              <h4 class="timeline-title">CEA Program Design &amp; Curriculum Development</h4>
+              <p>The Credentialing Committee completed the design of the Certified Equity Analyst program, establishing the examination framework, curriculum standards and continuing professional development requirements.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2021</div>
+              <h4 class="timeline-title">Global Chapter Network &amp; Membership Launch</h4>
+              <p>Regional chapters were established across North America, Europe and Asia-Pacific. The Society opened membership applications across all grades and admitted its inaugural cohort of Associate and Member-level practitioners.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2023</div>
+              <h4 class="timeline-title">Inaugural CEA Examinations &amp; Fellowship Program</h4>
+              <p>The first CEA examination cycle was administered across 25 test centres globally. The Fellowship grade was introduced and the inaugural cohort of FISEAs was recognised for distinguished contribution to the profession.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2025</div>
+              <h4 class="timeline-title">Research Publication &amp; Institutional Partnerships</h4>
+              <p>The International Journal of Equity Analysis published its inaugural issue. Strategic partnerships were formalised with leading institutional investors, regulatory bodies and academic affiliates across 15 countries.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2026</div>
+              <h4 class="timeline-title">Global Recognition &amp; Continued Expansion</h4>
+              <p>The Society now represents over 50,000 members across 190 countries with 25 active chapters. The CEA credential is recognised by leading asset managers, investment banks and regulatory authorities worldwide.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -149,8 +197,8 @@
           <span class="section-label">Purpose</span>
           <h2 class="section-title">Mission, Vision &amp; Global Values</h2>
           <div class="divider"></div>
-          <p><strong style="color: var(--white);">Our mission</strong> is to uphold a standard of analytical judgement, ethical conduct and professional discipline that commands respect across jurisdictions. We serve as a reference point for practitioners who recognise that equity analysis is not merely a technical exercise, but a fiduciary function that influences capital allocation, market integrity and long‑term economic outcomes.</p>
-          <p><strong style="color: var(--white);">Our vision</strong> is to maintain a global community of analysts who operate with consistency, independence and intellectual seriousness. The Society aims to be the institution that defines what competent and ethical equity analysis looks like — regardless of geography, market structure or prevailing industry trends.</p>
+          <p><strong style="color: var(--white);">Our mission</strong> is to uphold a standard of analytical judgement, ethical conduct and professional discipline that commands respect across jurisdictions. We serve as a reference point for practitioners who recognise that equity analysis is not merely a technical exercise, but a fiduciary function that influences capital allocation, market integrity and longâ€‘term economic outcomes.</p>
+          <p><strong style="color: var(--white);">Our vision</strong> is to maintain a global community of analysts who operate with consistency, independence and intellectual seriousness. The Society aims to be the institution that defines what competent and ethical equity analysis looks like â€” regardless of geography, market structure or prevailing industry trends.</p>
         </div>
         <div class="fade-in-right">
           <div class="card-glass" style="padding: var(--space-2xl); border-radius: var(--border-radius-lg);">
@@ -162,7 +210,7 @@
               </li>
               <li style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border-light);">
                 <strong style="color: var(--white);">Analytical Discipline</strong>
-                <p style="font-size: var(--font-size-sm); margin-bottom: 0;">Methods must be coherent, evidence‑based and proportionate to the decisions they inform.</p>
+                <p style="font-size: var(--font-size-sm); margin-bottom: 0;">Methods must be coherent, evidenceâ€‘based and proportionate to the decisions they inform.</p>
               </li>
               <li style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border-light);">
                 <strong style="color: var(--white);">Ethical Responsibility</strong>
@@ -186,10 +234,10 @@
         <span class="section-label">Leadership</span>
         <h2 class="section-title">Board of Governors &amp; Leadership Council</h2>
         <div class="divider"></div>
-        <p>The Board of Governors serves as the Society's highest governing authority and is responsible for safeguarding the institution's independence, credibility and long‑term direction. It is structured to reflect the standards expected of senior practitioners — those who demonstrate sustained professional judgement, ethical resilience and a commitment to the advancement of equity analysis.</p>
+        <p>The Board of Governors serves as the Society's highest governing authority and is responsible for safeguarding the institution's independence, credibility and longâ€‘term direction. It is structured to reflect the standards expected of senior practitioners â€” those who demonstrate sustained professional judgement, ethical resilience and a commitment to the advancement of equity analysis.</p>
         <p>The Board oversees the Society's strategic priorities, approves major policy positions and maintains accountability across all credentialing, disciplinary and governance functions. The role of the Board is to protect the integrity of the profession, even when doing so requires decisions that are not commercially convenient.</p>
         <p>Supporting the Board is the Leadership Council, structured to reflect the experience and judgement expected of senior practitioners engaged in the Society's work. The Council functions as the operational and strategic conduit between the Board's directives and the Society's broader activities, ensuring that initiatives are executed with discipline and coherence.</p>
-        <p>The Board of Governors and the Leadership Council form a governance architecture designed to be stable, principled and professionally demanding. Their combined oversight ensures that the Society remains an institution defined by integrity rather than convenience, and by long‑term stewardship rather than short‑term visibility.</p>
+        <p>The Board of Governors and the Leadership Council form a governance architecture designed to be stable, principled and professionally demanding. Their combined oversight ensures that the Society remains an institution defined by integrity rather than convenience, and by longâ€‘term stewardship rather than shortâ€‘term visibility.</p>
       </div>
     </div>
   </section>
@@ -203,7 +251,7 @@
         <div class="divider"></div>
         <p>The Global Advisory Committees form an important part of the Society's institutional architecture, providing a structured channel through which specialist judgement can be applied to policy, credentialing, research and professional standards. Each committee operates with a defined mandate.</p>
         <p>Some focus on curriculum and examination standards, ensuring that the Certified Equity Analyst designation reflects contemporary analytical practice. Others concentrate on regulatory developments, providing structured input on emerging disclosure requirements. Additional committees oversee research priorities, professional ethics, continuing development requirements and the recognition of advanced standing for experienced practitioners.</p>
-        <p>Committee members are selected for their professional record, independence of judgement and willingness to contribute to the long‑term integrity of the profession. Their work directly influences how standards are set, how examinations evolve, how disciplinary matters are assessed and how the Society positions itself in global policy discussions.</p>
+        <p>Committee members are selected for their professional record, independence of judgement and willingness to contribute to the longâ€‘term integrity of the profession. Their work directly influences how standards are set, how examinations evolve, how disciplinary matters are assessed and how the Society positions itself in global policy discussions.</p>
       </div>
     </div>
   </section>
@@ -221,7 +269,7 @@
           <p>The Society's approach to global expansion is intentionally selective. Formal representation is introduced only where professional need, regulatory alignment and the presence of practitioners capable of upholding the Society's standards justify it.</p>
         </div>
         <div class="fade-in-right">
-          <img src="assets/images/hero-la.png" alt="Global Financial Markets" style="border-radius: var(--border-radius-lg); box-shadow: var(--shadow-xl);">
+          <img src="assets/images/hero-la.webp" onerror="this.onerror=null;this.src='assets/images/hero-la.png'" alt="Global Financial Markets" style="border-radius: var(--border-radius-lg); box-shadow: var(--shadow-xl);">
         </div>
       </div>
     </div>
@@ -235,8 +283,8 @@
         <h2 class="section-title">Annual Reports &amp; Governance Disclosures</h2>
         <div class="divider"></div>
         <p>The Society's annual reporting framework is designed to provide members, regulators and institutional stakeholders with a clear view of how the organisation exercises its mandate. Our annual reports are formal records of stewardship, professional standards oversight and the operational decisions that shape the institution's direction.</p>
-        <p>Governance disclosures detail the structure and responsibilities of the Board of Governors, the Leadership Council and the Global Advisory Committees, along with the processes through which decisions are made, reviewed and escalated. This transparency is intentional — the Society applies the same expectations to itself that it demands of its members.</p>
-        <p>Financial reporting is conducted with equal seriousness, providing detailed accounts of revenue sources, credentialing program expenditures, research funding, chapter operations and long‑term capital commitments.</p>
+        <p>Governance disclosures detail the structure and responsibilities of the Board of Governors, the Leadership Council and the Global Advisory Committees, along with the processes through which decisions are made, reviewed and escalated. This transparency is intentional â€” the Society applies the same expectations to itself that it demands of its members.</p>
+        <p>Financial reporting is conducted with equal seriousness, providing detailed accounts of revenue sources, credentialing program expenditures, research funding, chapter operations and longâ€‘term capital commitments.</p>
       </div>
     </div>
   </section>
@@ -250,7 +298,7 @@
         <div class="divider"></div>
         <p>The Society's approach to external engagement is shaped by a deliberate commitment to strengthening the profession's intellectual foundations. The model for strategic partnerships encompasses regulatory bodies, institutional investors, research organisations and professional associations whose objectives intersect with the Society's own.</p>
         <p>Academic affiliations form a complementary pillar. The Society works with universities, business schools and research institutes that maintain rigorous finance programs and demonstrate a sustained commitment to empirical research. These affiliations support curriculum development, examination design and the advancement of analytical methodologies.</p>
-        <p>Academic partners contribute to peer‑review processes, participate in advisory structures and support publication through the International Journal of Equity Analysis. Their involvement ensures that credentialing and professional development programs remain grounded in evidence rather than convention.</p>
+        <p>Academic partners contribute to peerâ€‘review processes, participate in advisory structures and support publication through the International Journal of Equity Analysis. Their involvement ensures that credentialing and professional development programs remain grounded in evidence rather than convention.</p>
       </div>
     </div>
   </section>
@@ -312,9 +360,9 @@
       <div class="footer-bottom">
         <p>&copy; 2026 International Society of Equity Analysts. All rights reserved.</p>
         <div class="footer-social">
-          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
-          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg></a>
-          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+          <a href="https://www.linkedin.com/company/equityanalysts" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+          <a href="https://twitter.com/equityanalysts" aria-label="Twitter"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg></a>
+          <a href="https://youtube.com/@equityanalysts" aria-label="YouTube"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
         </div>
       </div>
     </div>
@@ -323,6 +371,22 @@
   <button class="scroll-top" aria-label="Scroll to top">
     <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
   </button>
+  
+  <!-- Cookie Consent -->
+  <div class="cookie-consent" id="cookieConsent">
+    <p>This website uses cookies and similar technologies to improve your experience. By continuing to browse, you agree to our use of cookies.</p>
+    <div class="cookie-consent-actions">
+      <button class="btn btn-secondary btn-sm" data-cookie-accept>Accept</button>
+    </div>
+  </div>
+  <!-- Search Modal -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-modal-inner">
+      <input type="text" class="search-modal-input" id="searchInput" placeholder="Search the Society..." autocomplete="off">
+      <p class="search-hint">Search across all ISEA pages. Type at least 2 characters.</p>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
   <script src="js/main.js"></script>
 </body>
 </html>
