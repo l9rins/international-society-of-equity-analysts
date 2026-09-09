@@ -26,36 +26,18 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ---------- Page Transitions ---------- */
 function initPageTransition() {
   const overlay = document.querySelector('.page-transition');
-  if (!overlay) return;
+  if (overlay) {
+    overlay.classList.remove('active');
+    overlay.style.display = 'none';
+  }
 
-  // Fade in on load, then fade out
-  requestAnimationFrame(() => {
-    overlay.classList.add('active');
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        overlay.classList.remove('active');
-      }, 50);
-    });
-  });
-
-  // Intercept internal nav links for smooth transitions
-  document.addEventListener('click', (e) => {
-    const link = e.target.closest('a:not([href^="#"]):not([href^="mailto:"]):not([href^="http"]):not([target="_blank"])');
-    if (!link) return;
-
-    const href = link.getAttribute('href');
-    if (!href || href === '#' || href.startsWith('javascript:')) return;
-
-    const isSamePage = window.location.pathname.endsWith(href) ||
-      (!href.includes('/') && window.location.pathname.split('/').pop() === href);
-
-    if (isSamePage) return;
-
-    e.preventDefault();
-    overlay.classList.add('active');
-    setTimeout(() => {
-      window.location.href = href;
-    }, 350);
+  // Ensure bfcache back/forward navigation never shows stuck overlays
+  window.addEventListener('pageshow', () => {
+    const ov = document.querySelector('.page-transition');
+    if (ov) {
+      ov.classList.remove('active');
+      ov.style.display = 'none';
+    }
   });
 }
 
@@ -127,23 +109,23 @@ function initNavigation() {
 /* ---------- Scroll Animations ---------- */
 function initScrollAnimations() {
   const elements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .stagger-children');
+  
+  // Ensure all elements are immediately visible
+  elements.forEach(el => el.classList.add('visible'));
 
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0,
+      rootMargin: '100px'
     });
 
     elements.forEach(el => observer.observe(el));
-  } else {
-    elements.forEach(el => el.classList.add('visible'));
   }
 }
 
