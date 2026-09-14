@@ -739,18 +739,45 @@ function initCountdownTimer() {
 
 /* ---------- Smooth Scroll for Anchors ---------- */
 document.addEventListener('click', (e) => {
-  const anchor = e.target.closest('a[href^="#"]');
-  if (anchor) {
-    const href = anchor.getAttribute('href');
-    if (href === '#' || href === '') return;
+  const anchor = e.target.closest('a');
+  if (!anchor) return;
+  const href = anchor.getAttribute('href');
+  if (!href || href === '#') return;
+
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  let targetId = null;
+
+  if (href.startsWith('#') && href.length > 1) {
+    targetId = href;
+  } else if (href.includes('#')) {
+    const [page, hash] = href.split('#');
+    if ((page === currentPage || (currentPage === 'index.html' && page === '')) && hash) {
+      targetId = '#' + hash;
+    }
+  }
+
+  if (targetId) {
     try {
-      const target = document.querySelector(href);
+      const target = document.querySelector(targetId);
       if (target) {
         e.preventDefault();
+        // Update URL hash cleanly without page reload
+        if (window.history && window.history.pushState) {
+          history.pushState(null, '', targetId);
+        }
         const nav = document.querySelector('.nav') || document.querySelector('.navbar');
         const navHeight = nav ? nav.offsetHeight : 80;
         const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
         window.scrollTo({ top, behavior: 'smooth' });
+
+        // Close mobile nav menu if open
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (navToggle && navMenu && navMenu.classList.contains('active')) {
+          navToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        }
       }
     } catch (err) {
       // Ignored if invalid selector
