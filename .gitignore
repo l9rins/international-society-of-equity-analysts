@@ -1,4 +1,5 @@
 # Reference source documents
 done/
 *.docx
+.~lock.*
 scratch/
