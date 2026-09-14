@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCookieConsent();
   initCounterRings();
   initContactForm();
+  initCountdownTimer();
 });
 
 /* ---------- Page Transitions ---------- */
@@ -698,17 +699,61 @@ function initContactForm() {
   });
 }
 
+/* ---------- Event Countdown Timer ---------- */
+function initCountdownTimer() {
+  const daysEl = document.getElementById('countdown-days');
+  const hoursEl = document.getElementById('countdown-hours');
+  const minsEl = document.getElementById('countdown-minutes');
+  const secsEl = document.getElementById('countdown-seconds');
+
+  if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
+
+  // Set target date for Annual Global Equity Conference (Nov 18, 2026)
+  const targetDate = new Date(2026, 10, 18, 9, 0, 0);
+
+  function update() {
+    const now = new Date();
+    const diff = targetDate.getTime() - now.getTime();
+    if (diff <= 0) {
+      daysEl.textContent = '00';
+      hoursEl.textContent = '00';
+      minsEl.textContent = '00';
+      secsEl.textContent = '00';
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    daysEl.textContent = String(days).padStart(2, '0');
+    hoursEl.textContent = String(hours).padStart(2, '0');
+    minsEl.textContent = String(minutes).padStart(2, '0');
+    secsEl.textContent = String(seconds).padStart(2, '0');
+  }
+
+  update();
+  setInterval(update, 1000);
+}
+
 /* ---------- Smooth Scroll for Anchors ---------- */
 document.addEventListener('click', (e) => {
   const anchor = e.target.closest('a[href^="#"]');
   if (anchor) {
-    e.preventDefault();
-    const target = document.querySelector(anchor.getAttribute('href'));
-    if (target) {
-      const nav = document.querySelector('.navbar');
-      const navHeight = nav ? nav.offsetHeight : 80;
-      const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
-      window.scrollTo({ top, behavior: 'smooth' });
+    const href = anchor.getAttribute('href');
+    if (href === '#' || href === '') return;
+    try {
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        const nav = document.querySelector('.nav') || document.querySelector('.navbar');
+        const navHeight = nav ? nav.offsetHeight : 80;
+        const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    } catch (err) {
+      // Ignored if invalid selector
     }
   }
 });

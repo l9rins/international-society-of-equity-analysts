@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -28,26 +28,29 @@
   <!-- Navigation -->
   <nav class="nav" id="mainNav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><img src="assets/logos/Logo - horizontal - white on dark navy blue background [MAIN] - processed.png" alt="ISEA"></a>
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logos/Logo - horizontal - white on dark navy blue background [MAIN] - processed.png" alt="ISEA">
+      </a>
       <ul class="nav-menu" id="navMenu">
         <li class="nav-item"><a href="about.html" class="nav-link">About <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
           <div class="nav-dropdown">
             <a href="about.html#history">Our History &amp; Heritage</a>
             <a href="about.html#mission">Mission, Vision &amp; Values</a>
-            <a href="about.html#governance">Board of Governors</a>
-            <a href="about.html#committees">Advisory Committees</a>
+            <a href="about.html#governance">Governing Council</a>
+            <a href="about.html#committees">Global Standing Committees</a>
             <a href="about.html#chapters">Global Chapters</a>
             <a href="about.html#partnerships">Strategic Partnerships</a>
+            <a href="contact.html">Contact Us</a>
           </div>
         </li>
         <li class="nav-item"><a href="membership.html" class="nav-link active">Membership <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
           <div class="nav-dropdown">
-            <a href="#overview">Overview &amp; Benefits</a>
-            <a href="#grades">Grades of Membership</a>
-            <a href="#ethics">Code of Ethics</a>
-            <a href="policies.html">Society Policies</a>
-            <a href="#corporate">Corporate Membership</a>
-            <a href="#directory">Directory of Members</a>
+            <a href="membership.html#overview">Overview &amp; Benefits</a>
+            <a href="membership.html#grades">Grades of Membership</a>
+            <a href="code-of-ethics.html">Code of Ethics</a>
+            <a href="policies.html">Policies &amp; Governance</a>
+            <a href="membership.html#corporate">Corporate Membership</a>
+            <a href="membership.html#members-directory">Directory of Members</a>
             <a href="apply.html">Apply for Membership</a>
           </div>
         </li>
@@ -226,7 +229,7 @@
           <span class="section-label">Ethical Foundation</span>
           <h2 class="section-title">Code of Ethics &amp; Professional Conduct</h2>
           <div class="divider"></div>
-          <p>The Society formally adopts the <a href="https://www.cfainstitute.org/standards/professionals/code-ethics-standards" target="_blank">CFA Institute's Code of Ethics and Standards of Professional Conduct</a>, the <a href="http://rgquintero.com/media/718213af1d8e30deffff8168ffffe905.pdf" target="_blank">Research Objectivity Standards (ROS)</a> and the <a href="https://rpc.cfainstitute.org/sites/default/files/-/media/documents/code/other-codes-standards/analyst-issuer-guidelines.pdf" target="_blank">Best Practice Guidelines Governing Analyst/Corporate Issuer Relations</a>.</p>
+          <p>The Society formally adopts the <a href="code-of-ethics.html" target="_blank">ISEA's Code of Ethics and Standards of Professional Conduct</a>, the <a href="code-of-ethics.html" target="_blank">Research Objectivity Standards (ROS)</a> and the <a href="code-of-ethics.html" target="_blank">Best Practice Guidelines Governing Analyst/Corporate Issuer Relations</a>.</p>
           <p>Members are required to adhere to principles that demand integrity, independence of judgement, transparency in communication, proper handling of material non-public information, and avoidance of conflicts that could compromise analytical reliability. These standards apply uniformly across all membership grades and jurisdictions.</p>
           <p>Compliance is monitored through a formal disciplinary system that includes investigation, review and sanction processes. Breaches may result in suspension, revocation of membership or loss of designation rights.</p>
         </div>
@@ -278,63 +281,110 @@
         <p>The Directory of Members is the Society’s formal register of individuals admitted across all membership grades — Student Members, Associate Members, Members and Fellows. It reflects the breadth of the professional community that supports the advancement of disciplined, ethical equity analysis.</p>
         <p>Each member is listed according to their membership grade and standing within the Society. The directory is kept fully up-to-date and records only those members who remain in good standing and continue to meet the Society’s ethical and professional requirements.</p>
 
-        <!-- Directory Database Preview / Search -->
-        <div style="margin-top: var(--space-2xl); background: var(--navy-800); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--border-radius-lg); padding: var(--space-xl);">
+        <!-- Directory Search-Only Interface -->
+        <div id="memberSearchPanel" style="margin-top: var(--space-2xl); background: var(--navy-800); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--border-radius-lg); padding: var(--space-xl);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-lg); flex-wrap: wrap; gap: var(--space-md);">
             <div>
               <h3 style="color: var(--text-primary); font-size: var(--font-size-lg); margin-bottom: 4px;">Public Registry of Admitted Members</h3>
-              <p style="color: var(--text-secondary); font-size: var(--font-size-sm); margin: 0;">Verified members in good standing across international chapters.</p>
+              <p style="color: var(--text-secondary); font-size: var(--font-size-sm); margin: 0;">Search by name to verify an ISEA member's standing and credentials.</p>
             </div>
             <div style="display: flex; gap: var(--space-sm);">
               <span class="badge" style="background: rgba(30, 215, 96, 0.15); color: #1ed760; border: 1px solid rgba(30, 215, 96, 0.3);">Register Active</span>
-              <span class="badge" style="background: rgba(212, 160, 23, 0.15); color: var(--gold-400); border: 1px solid rgba(212, 160, 23, 0.3);">Audited 2026</span>
             </div>
           </div>
 
-          <div style="overflow-x: auto;">
-            <table style="width: 100%; border-collapse: collapse; font-size: var(--font-size-sm); text-align: left;">
-              <thead>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.12); color: var(--gold-400);">
-                  <th style="padding: 12px 16px;">Name</th>
-                  <th style="padding: 12px 16px;">Membership Grade</th>
-                  <th style="padding: 12px 16px;">Affiliation / Position</th>
-                  <th style="padding: 12px 16px;">Standing</th>
-                </tr>
-              </thead>
-              <tbody style="color: var(--text-secondary);">
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                  <td style="padding: 12px 16px; color: var(--text-primary); font-weight: 600;">Anne Abad</td>
-                  <td style="padding: 12px 16px;"><span class="badge" style="background: rgba(45,108,223,0.15); color: #60a5fa;">Associate Member</span></td>
-                  <td style="padding: 12px 16px;">Co-Chief Investment Officer, Rothman Ashbury Asset Management</td>
-                  <td style="padding: 12px 16px; color: #1ed760;">Active</td>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                  <td style="padding: 12px 16px; color: var(--text-primary); font-weight: 600;">Carlos Tiausas</td>
-                  <td style="padding: 12px 16px;"><span class="badge" style="background: rgba(45,108,223,0.15); color: #60a5fa;">Associate Member</span></td>
-                  <td style="padding: 12px 16px;">Head of Equity Research, Graham and Doddsville</td>
-                  <td style="padding: 12px 16px; color: #1ed760;">Active</td>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                  <td style="padding: 12px 16px; color: var(--text-primary); font-weight: 600;">Emma Padua</td>
-                  <td style="padding: 12px 16px;"><span class="badge" style="background: rgba(168,85,247,0.15); color: #c084fc;">Student Member</span></td>
-                  <td style="padding: 12px 16px;">Postgraduate Candidate, Quantitative Finance</td>
-                  <td style="padding: 12px 16px; color: #1ed760;">Active</td>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                  <td style="padding: 12px 16px; color: var(--text-primary); font-weight: 600;">Ariel Dalida</td>
-                  <td style="padding: 12px 16px;"><span class="badge" style="background: rgba(45,108,223,0.15); color: #60a5fa;">Associate Member</span></td>
-                  <td style="padding: 12px 16px;">Executive Manager - Investments, SIA International</td>
-                  <td style="padding: 12px 16px; color: #1ed760;">Active</td>
-                </tr>
-              </tbody>
-            </table>
+          <!-- Search Box -->
+          <div style="display: flex; gap: var(--space-md); margin-bottom: var(--space-lg); flex-wrap: wrap;">
+            <input type="text" id="memberSearchInput" placeholder="Enter member name (e.g. Anne Abad)..." style="flex: 1; min-width: 200px; padding: 12px 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--border-radius); color: var(--text-primary); font-size: var(--font-size-sm); font-family: var(--font-body); outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--gold-500)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
+            <button id="memberSearchBtn" onclick="searchMembers()" class="btn btn-primary" style="padding: 12px 24px; white-space: nowrap;">Search Registry</button>
           </div>
 
-          <div style="margin-top: var(--space-xl); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md); border-top: 1px solid rgba(255,255,255,0.06); padding-top: var(--space-md);">
-            <p style="font-size: var(--font-size-xs); color: var(--text-muted); margin: 0;">Showing recently confirmed admissions. For full institutional verification, access the Member Portal.</p>
-            <a href="login.html" class="btn btn-secondary btn-sm">Member Portal Access</a>
+          <!-- Results (hidden by default) -->
+          <div id="memberSearchResults" style="display: none;">
+            <div style="overflow-x: auto;">
+              <table id="memberResultsTable" style="width: 100%; border-collapse: collapse; font-size: var(--font-size-sm); text-align: left;">
+                <thead>
+                  <tr style="border-bottom: 1px solid rgba(255,255,255,0.12); color: var(--gold-400);">
+                    <th style="padding: 12px 16px;">Name</th>
+                    <th style="padding: 12px 16px;">Membership Grade</th>
+                    <th style="padding: 12px 16px;">Affiliation / Position</th>
+                    <th style="padding: 12px 16px;">Standing</th>
+                  </tr>
+                </thead>
+                <tbody id="memberResultsBody" style="color: var(--text-secondary);"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- No Results Message -->
+          <div id="memberNoResults" style="display: none; text-align: center; padding: var(--space-xl); color: var(--text-muted);">
+            <p style="margin: 0;">No members found matching your search. Please check the spelling and try again.</p>
+          </div>
+
+          <!-- Prompt (shown by default) -->
+          <div id="memberSearchPrompt" style="text-align: center; padding: var(--space-xl) var(--space-md); color: var(--text-muted);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity: 0.4; margin-bottom: var(--space-sm);"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <p style="margin: 0; font-size: var(--font-size-sm);">Enter a member's name above to verify their membership status and standing.</p>
+          </div>
+
+          <div style="margin-top: var(--space-md); border-top: 1px solid rgba(255,255,255,0.06); padding-top: var(--space-md);">
+            <p style="font-size: var(--font-size-xs); color: var(--text-muted); margin: 0;">This register reflects currently admitted members in good standing. For full institutional verification, contact the Secretariat.</p>
           </div>
         </div>
+
+        <script>
+        // Member database
+        var memberDB = [
+          { name: "Anne Abad", grade: "Associate Member", gradeBg: "rgba(45,108,223,0.15)", gradeColor: "#60a5fa", affiliation: "Co-Chief Investment Officer, Rothman Ashbury Asset Management", standing: "Active" },
+          { name: "Carlos Tiausas", grade: "Associate Member", gradeBg: "rgba(45,108,223,0.15)", gradeColor: "#60a5fa", affiliation: "Head of Equity Research, Graham and Doddsville", standing: "Active" },
+          { name: "Emma Padua", grade: "Student Member", gradeBg: "rgba(168,85,247,0.15)", gradeColor: "#c084fc", affiliation: "Postgraduate Candidate, Quantitative Finance", standing: "Active" },
+          { name: "Ariel Dalida", grade: "Associate Member", gradeBg: "rgba(45,108,223,0.15)", gradeColor: "#60a5fa", affiliation: "Executive Manager - Investments, SIA International", standing: "Active" }
+        ];
+
+        function searchMembers() {
+          var query = document.getElementById('memberSearchInput').value.trim().toLowerCase();
+          var resultsDiv = document.getElementById('memberSearchResults');
+          var noResultsDiv = document.getElementById('memberNoResults');
+          var promptDiv = document.getElementById('memberSearchPrompt');
+          var tbody = document.getElementById('memberResultsBody');
+
+          if (!query) {
+            resultsDiv.style.display = 'none';
+            noResultsDiv.style.display = 'none';
+            promptDiv.style.display = 'block';
+            return;
+          }
+
+          var matches = memberDB.filter(function(m) {
+            return m.name.toLowerCase().indexOf(query) !== -1;
+          });
+
+          promptDiv.style.display = 'none';
+
+          if (matches.length === 0) {
+            resultsDiv.style.display = 'none';
+            noResultsDiv.style.display = 'block';
+          } else {
+            noResultsDiv.style.display = 'none';
+            tbody.innerHTML = '';
+            matches.forEach(function(m) {
+              var row = document.createElement('tr');
+              row.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+              row.innerHTML = '<td style="padding: 12px 16px; color: var(--text-primary); font-weight: 600;">' + m.name + '</td>' +
+                '<td style="padding: 12px 16px;"><span class="badge" style="background:' + m.gradeBg + '; color:' + m.gradeColor + ';">' + m.grade + '</span></td>' +
+                '<td style="padding: 12px 16px;">' + m.affiliation + '</td>' +
+                '<td style="padding: 12px 16px; color: #1ed760;">' + m.standing + '</td>';
+              tbody.appendChild(row);
+            });
+            resultsDiv.style.display = 'block';
+          }
+        }
+
+        // Allow Enter key to trigger search
+        document.getElementById('memberSearchInput').addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') searchMembers();
+        });
+        </script>
       </div>
     </div>
   </section>
@@ -395,7 +445,7 @@
             <svg class="faq-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
           </button>
           <div class="faq-answer">
-            <p>The Society recognises advanced standing for holders of certain recognised credentials, including the CFA charter, through a structured recognition process. Applicants seeking advanced standing should submit their credential details with their application for assessment. Recognition decisions are made by the Credentialing Committee and are subject to verification.</p>
+            <p>The Society recognises advanced standing for holders of certain recognised credentials, including a recognised professional credential, through a structured recognition process. Applicants seeking advanced standing should submit their credential details with their application for assessment. Recognition decisions are made by the Credentialing Committee and are subject to verification.</p>
           </div>
         </div>
 
