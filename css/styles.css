@@ -124,6 +124,28 @@ section[id], div[id] {
   scroll-margin-top: calc(var(--nav-height) + 16px);
 }
 
+/* Skip link: off-screen until focused with the keyboard */
+.skip-link {
+  position: absolute;
+  left: var(--space-md);
+  top: -100px;
+  z-index: 3000;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--gold-500);
+  color: var(--navy-900);
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: var(--space-md);
+}
+
+main:focus {
+  outline: none;
+}
+
 body {
   font-family: var(--font-body);
   font-weight: 400;
@@ -335,7 +357,11 @@ p {
 
 .nav-link .arrow, .nav-arrow { transition: transform var(--transition-base); display: flex; align-items: center; }
 
-.nav-item:hover .arrow, .nav-item:hover .nav-arrow { transform: rotate(180deg); }
+@media (min-width: 993px) {
+  .nav-item:hover .arrow, .nav-item:hover .nav-arrow,
+  .nav-item:focus-within:not(.dismissed) .nav-arrow,
+  .nav-item.open .nav-arrow { transform: rotate(180deg); }
+}
 
 /* Dropdown */
 .nav-dropdown {
@@ -355,10 +381,15 @@ p {
   z-index: 100;
 }
 
-.nav-item:hover .nav-dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
+/* Desktop: open on hover, keyboard focus (:focus-within) or tap/click (.open) */
+@media (min-width: 993px) {
+  .nav-item:hover .nav-dropdown,
+  .nav-item:focus-within:not(.dismissed) .nav-dropdown,
+  .nav-item.open .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 .nav-dropdown a {
@@ -2180,13 +2211,17 @@ p {
     inset: 0;
     width: 100%;
     height: 100vh;
+    height: 100dvh;
     background: rgba(10, 22, 40, 0.97);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: var(--space-4xl);
+    /* "safe" keeps the first items reachable when an open submenu makes the list taller than the screen */
+    justify-content: safe center;
+    padding: var(--space-4xl) var(--space-lg);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     transition: opacity var(--transition-slow), visibility var(--transition-slow);
     opacity: 0;
     visibility: hidden;
@@ -2218,12 +2253,17 @@ p {
   .nav-menu.active .nav-item:nth-child(6) { transition-delay: 0.3s; }
   .nav-menu.active .nav-item:nth-child(7) { transition-delay: 0.35s; }
 
+  .nav-menu .nav-item {
+    max-width: 100%;
+  }
+
   .nav-link {
     padding: var(--space-md) var(--space-xl);
     font-size: 1.2rem;
     font-weight: 500;
     border: none;
     gap: 8px;
+    white-space: normal;
   }
 
   .nav-dropdown {
@@ -2281,6 +2321,11 @@ p {
   .search-modal { padding: 10vh var(--space-md) var(--space-md); }
 }
 
+/* Two membership-tier cards no longer fit side by side below ~700px */
+@media (max-width: 700px) {
+  .grid-4 { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 480px) {
   :root {
     --font-size-6xl: 2rem;
@@ -2303,6 +2348,32 @@ p {
 
   .hero-actions .btn {
     width: 100%;
+  }
+
+  /* Keep the top bar within the screen: tighter spacing and a logo that can scale down */
+  .nav-inner {
+    padding: 0 var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  .nav-logo {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .nav-logo img {
+    height: auto;
+    max-height: 36px;
+    max-width: 100%;
+  }
+
+  .nav-actions {
+    gap: var(--space-sm);
+    flex-shrink: 0;
+  }
+
+  .nav-actions .btn-sm {
+    padding: 8px 12px;
   }
 }
 

@@ -6,18 +6,19 @@
   <meta name="description" content="Learn about the International Society of Equity Analysts  –  our history, mission, governance, global chapters and strategic partnerships.">
   <meta property="og:title" content="About the Society | ISEA  –  International Society of Equity Analysts">
   <meta property="og:description" content="Learn about ISEA's history, mission, governance, global chapters and strategic partnerships.">
-  <meta property="og:image" content="https://www.equityanalysts.org/assets/logos/Logo - horizontal - dark navy blue on white background - processed.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://www.equityanalysts.org/assets/logos/Logo%20-%20horizontal%20-%20dark%20navy%20blue%20on%20white%20background%20-%20processed.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="About the Society | ISEA">
   <meta name="twitter:description" content="Learn about ISEA's history, mission, governance, global chapters and strategic partnerships.">
   <title>About the Society | ISEA  –  International Society of Equity Analysts</title>
+  <link rel="canonical" href="https://www.equityanalysts.org/about.html">
+  <meta property="og:url" content="https://www.equityanalysts.org/about.html">
   <link rel="icon" href="assets/logos/Logo - vertical - dark navy blue on white background - processed.png" type="image/png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- Page Transition Overlay -->
   <div class="page-transition"></div>
@@ -50,7 +51,7 @@
             <a href="code-of-ethics.html">Code of Ethics</a>
             <a href="policies.html">Policies &amp; Governance</a>
             <a href="membership.html#corporate">Corporate Membership</a>
-            <a href="membership.html#members-directory">Directory of Members</a>
+            <a href="membership.html#directory">Directory of Members</a>
             <a href="apply.html">Apply for Membership</a>
           </div>
         </li>
@@ -105,10 +106,12 @@
       <div class="nav-actions">
                 <a href="#" class="btn btn-secondary btn-sm" data-search-toggle aria-label="Search" style="font-size: 18px; line-height: 1; padding: 8px 14px;">⌕</a>
         <a href="login.html" class="btn btn-primary btn-sm" data-auth-link data-member-url="members/dashboard.html">Member Login</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="navMenu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
+
+  <main id="main-content" tabindex="-1">
 
   <!-- Hero -->
   <section class="hero hero-page">
@@ -275,7 +278,7 @@
           <p>The Society's approach to global expansion is intentionally selective. Formal representation is introduced only where professional need, regulatory alignment and the presence of practitioners capable of upholding the Society's standards justify it.</p>
         </div>
         <div class="fade-in-right">
-          <img src="assets/images/hero-la.webp" onerror="this.onerror=null;this.src='assets/images/hero-la.png'" alt="Global Financial Markets" style="border-radius: var(--border-radius-lg); box-shadow: var(--shadow-xl);">
+          <img src="assets/images/hero-la.webp" onerror="this.onerror=null;this.src='assets/images/hero-la.png'" alt="Global Financial Markets" style="border-radius: var(--border-radius-lg); box-shadow: var(--shadow-xl);" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -327,12 +330,14 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/logos/Logo - horizontal - white on dark navy blue background [MAIN] - processed.png" alt="ISEA Logo">
+          <img src="assets/logos/Logo - horizontal - white on dark navy blue background [MAIN] - processed.png" alt="ISEA Logo" loading="lazy" decoding="async">
           <p>Setting the global standard for equity analysis through credentialing, ethics, research and professional development.</p>
         </div>
         <div>
@@ -361,6 +366,7 @@
             <li><a href="mailto:info@equityanalysts.org">info@equityanalysts.org</a></li>
             <li><a href="mailto:membership@equityanalysts.org">membership@equityanalysts.org</a></li>
             <li><a href="news.html#media">Media Enquiries</a></li>
+            <li><a href="contact.html">Contact Us &amp; Global Offices</a></li>
           </ul>
         </div>
       </div>
@@ -394,6 +400,6 @@
       <div class="search-results" id="searchResults"></div>
     </div>
   </div>
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

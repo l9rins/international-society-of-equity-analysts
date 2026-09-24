@@ -22,7 +22,72 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounterRings();
   initContactForm();
   initCountdownTimer();
+  initModalA11y();
 });
+
+/* ---------- Modal Accessibility ---------- */
+// Dialogs marked [data-modal] are opened/closed by each page's own functions
+// (via style.display). This watches them to move focus in on open, keep Tab
+// inside while open, close on Escape (by clicking their [data-modal-close]
+// button) and return focus to the triggering control on close.
+function initModalA11y() {
+  const modals = Array.from(document.querySelectorAll('[data-modal]'));
+  if (!modals.length) return;
+
+  const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), ' +
+    'select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+  const isOpen = (m) => getComputedStyle(m).display !== 'none';
+  const focusables = (m) => Array.from(m.querySelectorAll(FOCUSABLE))
+    .filter(el => el.offsetParent !== null);
+
+  modals.forEach(modal => {
+    let wasOpen = isOpen(modal);
+    let returnFocus = null;
+    new MutationObserver(() => {
+      const open = isOpen(modal);
+      if (open === wasOpen) return;
+      wasOpen = open;
+      if (open) {
+        returnFocus = document.activeElement;
+        const target = modal.querySelector('[data-modal-close]') || focusables(modal)[0];
+        if (target) requestAnimationFrame(() => target.focus({ preventScroll: true }));
+      } else if (returnFocus && document.contains(returnFocus)) {
+        returnFocus.focus({ preventScroll: true });
+        returnFocus = null;
+      }
+    }).observe(modal, { attributes: true, attributeFilter: ['style', 'class'] });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    const modal = modals.find(isOpen);
+    if (!modal) return;
+
+    if (e.key === 'Escape') {
+      const closeBtn = modal.querySelector('[data-modal-close]');
+      if (closeBtn) {
+        e.preventDefault();
+        closeBtn.click();
+      }
+      return;
+    }
+
+    if (e.key !== 'Tab') return;
+    const items = focusables(modal);
+    if (!items.length) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (!modal.contains(document.activeElement)) {
+      e.preventDefault();
+      first.focus();
+    } else if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
+}
 
 /* ---------- Page Transitions ---------- */
 function initPageTransition() {
@@ -63,31 +128,97 @@ function initNavigation() {
     toggle.addEventListener('click', () => {
       toggle.classList.toggle('active');
       menu.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', String(menu.classList.contains('active')));
       document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
     });
   }
 
-  // Mobile dropdown toggle
-  navItems.forEach(item => {
+  const isMobileNav = () => window.innerWidth <= 992;
+  const noHover = () => window.matchMedia('(hover: none)').matches;
+  const dropdownItems = Array.from(navItems).filter(item =>
+    item.querySelector('.nav-link') && item.querySelector('.nav-dropdown'));
+
+  function syncExpanded(item) {
     const link = item.querySelector('.nav-link');
-    const dropdown = item.querySelector('.nav-dropdown');
-    if (dropdown && link) {
-      link.addEventListener('click', (e) => {
-        if (window.innerWidth <= 992) {
-          e.preventDefault();
-          item.classList.toggle('open');
-        }
-      });
+    const expanded = item.classList.contains('open') ||
+      (!isMobileNav() && !item.classList.contains('dismissed') &&
+        (item.matches(':hover') || item.contains(document.activeElement)));
+    link.setAttribute('aria-expanded', String(expanded));
+  }
+
+  function closeDropdowns(except) {
+    dropdownItems.forEach(item => {
+      if (item !== except) {
+        item.classList.remove('open');
+        syncExpanded(item);
+      }
+    });
+  }
+
+  // Dropdowns: hover and keyboard focus open them on desktop (CSS). A tap/click
+  // toggles them on mobile and on touch-only screens, where hover doesn't exist.
+  dropdownItems.forEach(item => {
+    const link = item.querySelector('.nav-link');
+    link.setAttribute('aria-haspopup', 'true');
+    link.setAttribute('aria-expanded', 'false');
+
+    link.addEventListener('click', (e) => {
+      const open = item.classList.contains('open');
+      if (isMobileNav() || (noHover() && !open)) {
+        e.preventDefault();
+        if (!isMobileNav()) closeDropdowns(item);
+        item.classList.toggle('open', !open);
+        item.classList.remove('dismissed');
+        syncExpanded(item);
+      }
+    });
+
+    item.addEventListener('mouseenter', () => syncExpanded(item));
+    item.addEventListener('mouseleave', () => {
+      item.classList.remove('dismissed');
+      syncExpanded(item);
+    });
+    item.addEventListener('focusin', () => syncExpanded(item));
+    item.addEventListener('focusout', (e) => {
+      if (!item.contains(e.relatedTarget)) {
+        item.classList.remove('dismissed');
+        if (!isMobileNav()) item.classList.remove('open');
+      }
+      setTimeout(() => syncExpanded(item), 0);
+    });
+  });
+
+  // Close open dropdowns on outside click (desktop) and on Escape
+  document.addEventListener('click', (e) => {
+    if (!isMobileNav() && !e.target.closest('.nav-item')) closeDropdowns();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const item = document.activeElement && document.activeElement.closest('.nav-item');
+    if (item && dropdownItems.includes(item)) {
+      item.classList.remove('open');
+      item.classList.add('dismissed');
+      item.querySelector('.nav-link').focus();
+      syncExpanded(item);
+    } else {
+      closeDropdowns();
     }
   });
 
-  // Close menu on link click (mobile)
+  // After choosing a dropdown link: close the mobile menu, and release focus on
+  // desktop so the dropdown closes normally once the pointer leaves it
   document.querySelectorAll('.nav-dropdown a').forEach(link => {
     link.addEventListener('click', () => {
-      if (window.innerWidth <= 992) {
+      const item = link.closest('.nav-item');
+      if (isMobileNav()) {
         toggle.classList.remove('active');
         menu.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
+      } else {
+        item.classList.remove('open');
+        link.blur();
+        syncExpanded(item);
       }
     });
   });
@@ -574,6 +705,10 @@ function initSearchModal() {
     { title: 'Home', url: 'index.html', desc: 'ISEA homepage — setting the global standard for equity analysis' },
     { title: 'About the Society', url: 'about.html', desc: 'History, mission, governance, chapters and partnerships' },
     { title: 'Membership', url: 'membership.html', desc: 'Membership grades, benefits, code of ethics, apply' },
+    { title: 'Apply for Membership', url: 'apply.html', desc: 'Application forms for Student, Associate, Member (MISEA) and Fellow (FISEA)' },
+    { title: 'Code of Ethics & Standards of Professional Conduct', url: 'code-of-ethics.html', desc: 'The ethical principles and professional standards binding all members' },
+    { title: 'Policies & Governance', url: 'policies.html', desc: 'All 21 Society policies: ethics, conduct, qualifications, governance and risk' },
+    { title: 'Directory of Members', url: 'membership.html#directory', desc: 'Verify a member’s grade and standing' },
     { title: 'Credentials & Certification', url: 'credentials.html', desc: 'CEA program, curriculum, exams, CPD, digital badges' },
     { title: 'Research & Publications', url: 'research.html', desc: 'Journal of Equity Analysis, market reports, white papers, library' },
     { title: 'Events & Global Forums', url: 'events.html', desc: 'Annual conference, speaker series, symposia, webinars' },
@@ -584,6 +719,11 @@ function initSearchModal() {
     { title: 'Member Login', url: 'login.html', desc: 'Members-only job board, document library and resources' },
     { title: 'Members Area', url: 'members/dashboard.html', desc: 'Job board, document library, CPD portal, profile' },
     { title: 'Contact Us', url: 'contact.html', desc: 'Get in touch with the ISEA team' },
+    { title: 'Website Terms of Use', url: 'terms.html', desc: 'Terms governing use of the ISEA website (legal)' },
+    { title: 'Privacy Policy', url: 'privacy.html', desc: 'How ISEA collects, uses and protects personal information (legal)' },
+    { title: 'Cookie Policy', url: 'cookies.html', desc: 'How the ISEA website uses cookies (legal)' },
+    { title: 'Disclaimer', url: 'disclaimer.html', desc: 'Limitations on reliance on website content (legal)' },
+    { title: 'Accessibility Statement', url: 'accessibility.html', desc: 'ISEA’s commitment to an accessible website (legal)' },
   ];
 
   function doSearch(query) {
@@ -600,8 +740,10 @@ function initSearchModal() {
       results.innerHTML = '<p style="color: var(--text-muted); font-size: var(--font-size-sm); text-align: center; margin-top: var(--space-xl);">No results found.</p>';
       return;
     }
+    // Index URLs are root-relative; pages inside /members/ need to step up a level
+    const rootPrefix = window.location.pathname.indexOf('/members/') !== -1 ? '../' : '';
     results.innerHTML = matches.map(p =>
-      `<a href="${p.url}" class="search-result-item" onclick="document.getElementById('searchModal').classList.remove('active')">
+      `<a href="${rootPrefix}${p.url}" class="search-result-item" onclick="document.getElementById('searchModal').classList.remove('active')">
         <div class="search-result-title">${p.title}</div>
         <div class="search-result-desc">${p.desc}</div>
       </a>`
@@ -671,23 +813,103 @@ function initCounterRings() {
 }
 
 /* ---------- Contact Form ---------- */
+/* ---------- Formspree Form Submission ---------- */
+// Site forms post to Formspree (https://formspree.io). To go live, replace each
+// form's action="YOUR_FORMSPREE_ENDPOINT_HERE" with its Formspree endpoint,
+// e.g. https://formspree.io/f/abcdwxyz. Until then submissions run in preview
+// mode: the success message shows but NOTHING is sent (a console warning says so).
+const FORMSPREE_PLACEHOLDER = 'YOUR_FORMSPREE_ENDPOINT_HERE';
+
+function submitToFormspree(form) {
+  const endpoint = form.getAttribute('action') || '';
+  if (!endpoint || endpoint.indexOf(FORMSPREE_PLACEHOLDER) !== -1) {
+    console.warn('[ISEA] Formspree endpoint not configured for form "' + (form.id || form.getAttribute('name') || 'unnamed') +
+      '". Submission was NOT sent (preview mode).');
+    return Promise.resolve(true);
+  }
+  return fetch(endpoint, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { Accept: 'application/json' }
+  })
+    .then(res => res.ok)
+    .catch(() => false);
+}
+
+function setFormError(form, message) {
+  let msg = form.querySelector('.form-submit-error');
+  if (!message) {
+    if (msg) msg.remove();
+    return;
+  }
+  if (!msg) {
+    msg = document.createElement('p');
+    msg.className = 'form-submit-error';
+    msg.setAttribute('role', 'alert');
+    msg.style.cssText = 'margin-top: var(--space-md); color: #fca5a5; font-size: var(--font-size-sm);';
+    form.appendChild(msg);
+  }
+  msg.textContent = message;
+}
+
+// Shared submit flow: validate, show a busy button, post, then call onSuccess
+// or show an inline error. Used by the inline onsubmit handlers on each page.
+function handleFormspreeSubmit(event, onSuccess) {
+  event.preventDefault();
+  const form = event.target;
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+  const btn = form.querySelector('button[type="submit"]');
+  const originalHtml = btn ? btn.innerHTML : '';
+  if (btn) {
+    btn.innerHTML = '<span class="spinner"></span> Sending...';
+    btn.disabled = true;
+  }
+  setFormError(form, null);
+
+  submitToFormspree(form).then(ok => {
+    if (btn) {
+      btn.innerHTML = originalHtml;
+      btn.disabled = false;
+    }
+    if (ok) {
+      if (onSuccess) onSuccess(form);
+    } else {
+      setFormError(form, 'Sorry, your submission could not be sent. Please try again, or email info@equityanalysts.org.');
+    }
+  });
+}
+
 function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
     const btn = form.querySelector('button[type="submit"]');
     const originalText = btn.innerHTML;
     btn.innerHTML = '<span class="spinner"></span> Sending...';
     btn.disabled = true;
+    setFormError(form, null);
 
-    setTimeout(() => {
+    submitToFormspree(form).then(ok => {
+      if (!ok) {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        setFormError(form, 'Sorry, your message could not be sent. Please try again, or email info@equityanalysts.org.');
+        return;
+      }
       btn.innerHTML = 'Message Sent ✓';
       btn.style.background = 'rgba(34, 197, 94, 0.2)';
       btn.style.color = '#86efac';
       btn.style.borderColor = 'rgba(34, 197, 94, 0.3)';
-      form.querySelectorAll('input, textarea').forEach(el => el.value = '');
+      form.reset();
       setTimeout(() => {
         btn.innerHTML = originalText;
         btn.disabled = false;
@@ -695,7 +917,7 @@ function initContactForm() {
         btn.style.color = '';
         btn.style.borderColor = '';
       }, 3000);
-    }, 1200);
+    });
   });
 }
 
@@ -776,6 +998,7 @@ document.addEventListener('click', (e) => {
         if (navToggle && navMenu && navMenu.classList.contains('active')) {
           navToggle.classList.remove('active');
           navMenu.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
           document.body.style.overflow = '';
         }
       }

@@ -3,3 +3,6 @@ done/
 *.docx
 .~lock.*
 scratch/
+
+# Internal / commercial files — never published
+_internal/

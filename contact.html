@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact the International Society of Equity Analysts. Reach our global headquarters in New York or our regional chapters worldwide.">
+  <meta name="description" content="Contact the International Society of Equity Analysts. Reach our Global Secretariat in Brisbane, our North America office or our regional chapters worldwide.">
   <meta property="og:title" content="Contact Us | ISEA  –  International Society of Equity Analysts">
   <meta property="og:description" content="Get in touch with ISEA. Contact our headquarters, regional chapters, or send us a message.">
-  <meta property="og:image" content="https://www.equityanalysts.org/assets/logos/Logo - horizontal - dark navy blue on white background - processed.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://www.equityanalysts.org/assets/logos/Logo%20-%20horizontal%20-%20dark%20navy%20blue%20on%20white%20background%20-%20processed.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact Us | ISEA">
   <meta name="twitter:description" content="Get in touch with ISEA. Contact our headquarters, regional chapters, or send us a message.">
   <title>Contact Us | ISEA  –  International Society of Equity Analysts</title>
+  <link rel="canonical" href="https://www.equityanalysts.org/contact.html">
+  <meta property="og:url" content="https://www.equityanalysts.org/contact.html">
   <link rel="icon" href="assets/logos/Logo - vertical - dark navy blue on white background - processed.png" type="image/png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- Page Transition Overlay -->
   <div class="page-transition"></div>
@@ -50,7 +51,7 @@
             <a href="code-of-ethics.html">Code of Ethics</a>
             <a href="policies.html">Policies &amp; Governance</a>
             <a href="membership.html#corporate">Corporate Membership</a>
-            <a href="membership.html#members-directory">Directory of Members</a>
+            <a href="membership.html#directory">Directory of Members</a>
             <a href="apply.html">Apply for Membership</a>
           </div>
         </li>
@@ -105,10 +106,12 @@
       <div class="nav-actions">
                 <a href="#" class="btn btn-secondary btn-sm" data-search-toggle aria-label="Search" style="font-size: 18px; line-height: 1; padding: 8px 14px;">⌕</a>
         <a href="login.html" class="btn btn-primary btn-sm" data-auth-link data-member-url="members/dashboard.html">Member Login</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="navMenu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
+
+  <main id="main-content" tabindex="-1">
 
   <!-- Hero -->
   <section class="hero hero-page">
@@ -180,22 +183,24 @@
         <div class="fade-in">
           <div class="card" style="padding: var(--space-2xl);">
             <h3 style="font-family: var(--font-heading); font-size: var(--font-size-xl); color: var(--white); margin-bottom: var(--space-lg);">Send a Message</h3>
-            <form id="contactForm" novalidate>
+            <form id="contactForm" action="YOUR_FORMSPREE_ENDPOINT_HERE" method="POST" novalidate>
+              <input type="hidden" name="_subject" value="ISEA Website Contact Enquiry">
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none;">
               <div class="form-group">
-                <label class="form-label">Full Name</label>
-                <input type="text" class="form-input" placeholder="Your full name" required>
+                <label for="contact-full-name" class="form-label">Full Name</label>
+                <input id="contact-full-name" type="text" class="form-input" placeholder="Your full name" required name="full_name">
               </div>
               <div class="form-group">
-                <label class="form-label">Email Address</label>
-                <input type="email" class="form-input" placeholder="your@email.com" required>
+                <label for="contact-email" class="form-label">Email Address</label>
+                <input id="contact-email" type="email" class="form-input" placeholder="your@email.com" required name="email">
               </div>
               <div class="form-group">
-                <label class="form-label">Subject</label>
-                <input type="text" class="form-input" placeholder="How can we help?" required>
+                <label for="contact-subject" class="form-label">Subject</label>
+                <input id="contact-subject" type="text" class="form-input" placeholder="How can we help?" required name="subject">
               </div>
               <div class="form-group">
-                <label class="form-label">Message</label>
-                <textarea class="form-input" placeholder="Your message..." required></textarea>
+                <label for="contact-message" class="form-label">Message</label>
+                <textarea id="contact-message" class="form-input" placeholder="Your message..." required name="message"></textarea>
               </div>
               <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Send Message</button>
             </form>
@@ -205,12 +210,14 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/logos/Logo - horizontal - white on dark navy blue background [MAIN] - processed.png" alt="ISEA Logo">
+          <img src="assets/logos/Logo - horizontal - white on dark navy blue background [MAIN] - processed.png" alt="ISEA Logo" loading="lazy" decoding="async">
           <p>Setting the global standard for equity analysis through credentialing, ethics, research and professional development.</p>
         </div>
         <div>
@@ -284,6 +291,6 @@
   <button class="scroll-top" aria-label="Scroll to top">
     <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
   </button>
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

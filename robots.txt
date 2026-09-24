@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /members/
+Disallow: /policies/
+
+Sitemap: https://www.equityanalysts.org/sitemap.xml

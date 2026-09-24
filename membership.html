@@ -6,18 +6,19 @@
   <meta name="description" content="ISEA Membership  –  grades of membership, Fellowship designation (FISEA), Code of Ethics, corporate membership, and how to apply.">
   <meta property="og:title" content="Membership | ISEA  –  International Society of Equity Analysts">
   <meta property="og:description" content="Join the International Society of Equity Analysts and access professional resources, credentialing and a global community.">
-  <meta property="og:image" content="https://www.equityanalysts.org/assets/logos/Logo - horizontal - dark navy blue on white background - processed.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://www.equityanalysts.org/assets/logos/Logo%20-%20horizontal%20-%20dark%20navy%20blue%20on%20white%20background%20-%20processed.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Membership | ISEA">
   <meta name="twitter:description" content="Join the International Society of Equity Analysts and access professional resources, credentialing and a global community.">
   <title>Membership &amp; Fellowship | ISEA  –  International Society of Equity Analysts</title>
+  <link rel="canonical" href="https://www.equityanalysts.org/membership.html">
+  <meta property="og:url" content="https://www.equityanalysts.org/membership.html">
   <link rel="icon" href="assets/logos/Logo - vertical - dark navy blue on white background - processed.png" type="image/png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- Page Transition Overlay -->
   <div class="page-transition"></div>
@@ -50,7 +51,7 @@
             <a href="code-of-ethics.html">Code of Ethics</a>
             <a href="policies.html">Policies &amp; Governance</a>
             <a href="membership.html#corporate">Corporate Membership</a>
-            <a href="membership.html#members-directory">Directory of Members</a>
+            <a href="membership.html#directory">Directory of Members</a>
             <a href="apply.html">Apply for Membership</a>
           </div>
         </li>
@@ -105,10 +106,12 @@
       <div class="nav-actions">
                 <a href="#" class="btn btn-secondary btn-sm" data-search-toggle aria-label="Search" style="font-size: 18px; line-height: 1; padding: 8px 14px;">⌕</a>
         <a href="login.html" class="btn btn-primary btn-sm" data-auth-link data-member-url="members/dashboard.html">Member Login</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="navMenu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
+
+  <main id="main-content" tabindex="-1">
 
   <!-- Hero -->
   <section class="hero hero-page">
@@ -234,7 +237,7 @@
           <p>Compliance is monitored through a formal disciplinary system that includes investigation, review and sanction processes. Breaches may result in suspension, revocation of membership or loss of designation rights.</p>
         </div>
         <div class="fade-in-right">
-          <img src="assets/images/hero-business.webp" onerror="this.onerror=null;this.src='assets/images/hero-business.png'" alt="Professional Standards" style="border-radius: var(--border-radius-lg); box-shadow: var(--shadow-xl);">
+          <img src="assets/images/hero-business.webp" onerror="this.onerror=null;this.src='assets/images/hero-business.png'" alt="Professional Standards" style="border-radius: var(--border-radius-lg); box-shadow: var(--shadow-xl);" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -295,7 +298,7 @@
 
           <!-- Search Box -->
           <div style="display: flex; gap: var(--space-md); margin-bottom: var(--space-lg); flex-wrap: wrap;">
-            <input type="text" id="memberSearchInput" placeholder="Enter member name (e.g. Anne Abad)..." style="flex: 1; min-width: 200px; padding: 12px 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--border-radius); color: var(--text-primary); font-size: var(--font-size-sm); font-family: var(--font-body); outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--gold-500)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
+            <input type="text" id="memberSearchInput" aria-label="Member name (at least 3 characters)" minlength="3" autocomplete="off" placeholder="Enter member name (e.g. Anne Abad)..." style="flex: 1; min-width: 200px; padding: 12px 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--border-radius); color: var(--text-primary); font-size: var(--font-size-sm); font-family: var(--font-body); outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--gold-500)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
             <button id="memberSearchBtn" onclick="searchMembers()" class="btn btn-primary" style="padding: 12px 24px; white-space: nowrap;">Search Registry</button>
           </div>
 
@@ -324,7 +327,7 @@
           <!-- Prompt (shown by default) -->
           <div id="memberSearchPrompt" style="text-align: center; padding: var(--space-xl) var(--space-md); color: var(--text-muted);">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity: 0.4; margin-bottom: var(--space-sm);"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <p style="margin: 0; font-size: var(--font-size-sm);">Enter a member's name above to verify their membership status and standing.</p>
+            <p id="memberSearchPromptText" style="margin: 0; font-size: var(--font-size-sm);">Enter a member's name above to verify their membership status and standing.</p>
           </div>
 
           <div style="margin-top: var(--space-md); border-top: 1px solid rgba(255,255,255,0.06); padding-top: var(--space-md);">
@@ -348,12 +351,22 @@
           var promptDiv = document.getElementById('memberSearchPrompt');
           var tbody = document.getElementById('memberResultsBody');
 
-          if (!query) {
+          var promptText = document.getElementById('memberSearchPromptText');
+          var defaultPrompt = "Enter a member's name above to verify their membership status and standing.";
+
+          // Require at least 3 characters so the full register can't be listed
+          // with a single keystroke (stopgap until the lookup moves server-side)
+          if (query.length < 3) {
+            tbody.innerHTML = '';
             resultsDiv.style.display = 'none';
             noResultsDiv.style.display = 'none';
             promptDiv.style.display = 'block';
+            if (promptText) {
+              promptText.textContent = query ? "Please enter at least 3 characters of the member's name." : defaultPrompt;
+            }
             return;
           }
+          if (promptText) promptText.textContent = defaultPrompt;
 
           var matches = memberDB.filter(function(m) {
             return m.name.toLowerCase().indexOf(query) !== -1;
@@ -489,14 +502,16 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand"><img src="assets/logos/Logo - horizontal - white on dark navy blue background [MAIN] - processed.png" alt="ISEA Logo"><p>Setting the global standard for equity analysis through credentialing, ethics, research and professional development.</p></div>
+        <div class="footer-brand"><img src="assets/logos/Logo - horizontal - white on dark navy blue background [MAIN] - processed.png" alt="ISEA Logo" loading="lazy" decoding="async"><p>Setting the global standard for equity analysis through credentialing, ethics, research and professional development.</p></div>
         <div><h4 class="footer-heading">The Society</h4><ul class="footer-links"><li><a href="about.html">About ISEA</a></li><li><a href="membership.html">Membership</a></li><li><a href="credentials.html">Credentials</a></li><li><a href="research.html">Research</a></li><li><a href="news.html">News</a></li></ul></div>
         <div><h4 class="footer-heading">Resources</h4><ul class="footer-links"><li><a href="events.html">Events</a></li><li><a href="development.html">Development</a></li><li><a href="careers.html">Careers</a></li><li><a href="blog.html">Insights</a></li><li><a href="login.html">Member Login</a></li></ul></div>
-        <div><h4 class="footer-heading">Contact</h4><ul class="footer-links"><li><a href="mailto:info@equityanalysts.org">info@equityanalysts.org</a></li><li><a href="mailto:membership@equityanalysts.org">membership@equityanalysts.org</a></li><li><a href="news.html#media">Media Enquiries</a></li></ul></div>
+        <div><h4 class="footer-heading">Contact</h4><ul class="footer-links"><li><a href="mailto:info@equityanalysts.org">info@equityanalysts.org</a></li><li><a href="mailto:membership@equityanalysts.org">membership@equityanalysts.org</a></li><li><a href="news.html#media">Media Enquiries</a></li><li><a href="contact.html">Contact Us &amp; Global Offices</a></li></ul></div>
       </div>
       <div class="footer-bottom"><p>&copy; 2026 International Society of Equity Analysts. All rights reserved.</p><div class="footer-social"><a href="https://www.linkedin.com/company/equityanalysts" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a href="https://x.com/equityanalysts1" aria-label="Twitter"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg></a><a href="https://youtube.com/@equityanalysts" aria-label="YouTube"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a></div></div>
       <div class="footer-legal" style="border-top: 1px solid rgba(255,255,255,0.08); padding: var(--space-md) 0; margin-top: var(--space-xl); display: flex; justify-content: center; gap: var(--space-lg); flex-wrap: wrap; font-size: var(--font-size-xs); color: var(--text-muted);">
@@ -532,6 +547,6 @@
       <div class="search-results" id="searchResults"></div>
     </div>
   </div>
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
