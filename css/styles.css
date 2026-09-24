@@ -335,6 +335,42 @@ p {
 
 .nav-item {
   position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* A top-level link followed by its dropdown toggle: the chevron sits where it
+   used to be inside the link, so the gap moves onto the button */
+.nav-item > .nav-link {
+  padding-right: 0;
+}
+
+.nav-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  padding: var(--space-sm) var(--space-md) var(--space-sm) 8px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover + .nav-dropdown-toggle,
+.nav-link.active + .nav-dropdown-toggle,
+.nav-dropdown-toggle:hover {
+  color: var(--white);
+}
+
+.nav-dropdown-toggle:focus-visible {
+  outline: 2px solid var(--gold-500);
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+
+.nav-item.open .nav-arrow {
+  transform: rotate(180deg);
 }
 
 .nav-link {
@@ -2253,8 +2289,28 @@ p {
   .nav-menu.active .nav-item:nth-child(6) { transition-delay: 0.3s; }
   .nav-menu.active .nav-item:nth-child(7) { transition-delay: 0.35s; }
 
+  /* Link + toggle on one row, submenu on its own row below; each item stays as
+     wide as its content so the menu column keeps its centred layout */
   .nav-menu .nav-item {
     max-width: 100%;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+  }
+
+  .nav-menu .nav-dropdown {
+    grid-column: 1 / -1;
+  }
+
+  .nav-menu .nav-dropdown-toggle {
+    justify-self: start;
+  }
+
+  .nav-dropdown-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+    padding: var(--space-md) var(--space-xl) var(--space-md) 12px;
   }
 
   .nav-link {

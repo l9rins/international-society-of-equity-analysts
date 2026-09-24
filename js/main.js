@@ -136,14 +136,22 @@ function initNavigation() {
   const isMobileNav = () => window.innerWidth <= 992;
   const noHover = () => window.matchMedia('(hover: none)').matches;
   const dropdownItems = Array.from(navItems).filter(item =>
-    item.querySelector('.nav-link') && item.querySelector('.nav-dropdown'));
+    item.querySelector('.nav-dropdown-toggle') && item.querySelector('.nav-dropdown'));
 
+  // Keep each toggle button's aria-expanded in step with whether its dropdown
+  // is showing (open via click/tap, or via hover / keyboard focus on desktop)
   function syncExpanded(item) {
-    const link = item.querySelector('.nav-link');
+    const button = item.querySelector('.nav-dropdown-toggle');
     const expanded = item.classList.contains('open') ||
       (!isMobileNav() && !item.classList.contains('dismissed') &&
         (item.matches(':hover') || item.contains(document.activeElement)));
-    link.setAttribute('aria-expanded', String(expanded));
+    button.setAttribute('aria-expanded', String(expanded));
+  }
+
+  function setOpen(item, open) {
+    item.classList.toggle('open', open);
+    item.classList.remove('dismissed');
+    syncExpanded(item);
   }
 
   function closeDropdowns(except) {
@@ -155,21 +163,25 @@ function initNavigation() {
     });
   }
 
-  // Dropdowns: hover and keyboard focus open them on desktop (CSS). A tap/click
-  // toggles them on mobile and on touch-only screens, where hover doesn't exist.
+  // Dropdowns: the chevron <button> toggles its submenu everywhere. On desktop
+  // hover and keyboard focus also open it (CSS). On mobile, and on the first tap
+  // on touch-only screens, the top-level link toggles the submenu too.
   dropdownItems.forEach(item => {
     const link = item.querySelector('.nav-link');
-    link.setAttribute('aria-haspopup', 'true');
-    link.setAttribute('aria-expanded', 'false');
+    const button = item.querySelector('.nav-dropdown-toggle');
+
+    button.addEventListener('click', () => {
+      const open = !item.classList.contains('open');
+      if (!isMobileNav()) closeDropdowns(item);
+      setOpen(item, open);
+    });
 
     link.addEventListener('click', (e) => {
       const open = item.classList.contains('open');
       if (isMobileNav() || (noHover() && !open)) {
         e.preventDefault();
         if (!isMobileNav()) closeDropdowns(item);
-        item.classList.toggle('open', !open);
-        item.classList.remove('dismissed');
-        syncExpanded(item);
+        setOpen(item, !open);
       }
     });
 
@@ -196,9 +208,10 @@ function initNavigation() {
     if (e.key !== 'Escape') return;
     const item = document.activeElement && document.activeElement.closest('.nav-item');
     if (item && dropdownItems.includes(item)) {
+      // Close and return focus to this dropdown's toggle button
       item.classList.remove('open');
       item.classList.add('dismissed');
-      item.querySelector('.nav-link').focus();
+      item.querySelector('.nav-dropdown-toggle').focus();
       syncExpanded(item);
     } else {
       closeDropdowns();
